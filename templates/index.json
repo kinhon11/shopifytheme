@@ -1,282 +1,278 @@
 {
   "sections": {
-    "hero_jVaWmY": {
+    "hero": {
       "type": "hero",
       "blocks": {
-        "text_YLPk4p": {
+        "text": {
           "type": "text",
-          "name": "t:names.heading",
           "settings": {
-            "text": "<p>Scopri i nostri ultimi prodotti</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "<h2>Lo Stile Italiano, a Casa Tua</h2><p>Esplora la nostra collezione premium di articoli per la casa, bellezza, accessori e regali. Vivi la dolce vita ogni giorno.</p>",
+            "type_preset": "rte",
+            "alignment": "center",
+            "color": "var(--color-foreground-heading)"
+          }
         },
-        "button_H9gpTf": {
+        "button": {
           "type": "button",
-          "name": "t:names.button",
           "settings": {
-            "label": "Acquista tutto",
+            "label": "Acquista Ora",
             "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+            "style_class": "button-primary",
+            "width": "fit-content"
+          }
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "text",
+        "button"
       ],
-      "name": "t:names.hero",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
+        "color_scheme": "scheme-2",
         "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "vertical_alignment_flex_direction_column": "center",
+        "padding-block-start": 80,
+        "padding-block-end": 80
       }
     },
-    "product_list_fa6P9H": {
+    "categories": {
+      "type": "multicolumn",
+      "blocks": {
+        "home": {
+          "type": "column",
+          "settings": {
+            "title": "Casa e Cucina",
+            "text": "<p>Eleganti accessori per la tua casa</p>"
+          }
+        },
+        "beauty": {
+          "type": "column",
+          "settings": {
+            "title": "Bellezza",
+            "text": "<p>Cura della persona premium</p>"
+          }
+        },
+        "accessories": {
+          "type": "column",
+          "settings": {
+            "title": "Accessori",
+            "text": "<p>Stile e dettagli unici</p>"
+          }
+        },
+        "lifestyle": {
+          "type": "column",
+          "settings": {
+            "title": "Stile di Vita",
+            "text": "<p>Il meglio per la tua giornata</p>"
+          }
+        }
+      },
+      "block_order": [
+        "home",
+        "beauty",
+        "accessories",
+        "lifestyle"
+      ],
+      "settings": {
+        "title": "Categorie Popolari",
+        "color_scheme": "scheme-1",
+        "columns_desktop": 4,
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    },
+    "featured_products": {
       "type": "product-list",
       "blocks": {
         "static-header": {
           "type": "_product-list-content",
-          "name": "t:names.header",
           "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
+          "settings": {},
           "blocks": {
-            "product_list_text_YFtzcL": {
+            "text": {
               "type": "_product-list-text",
-              "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "Vedi tutto",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
+                "text": "<h3>Nuovi Arrivi</h3>",
+                "type_preset": "h3"
+              }
             }
           },
           "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
+            "text"
           ]
         },
         "static-product-card": {
           "type": "_product-card",
-          "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "border_radius": 16,
+            "border": "solid",
+            "border_color": "#F1F2F6",
+            "border_width": 1
           },
           "blocks": {
-            "product_card_gallery_677WP3": {
+            "gallery": {
               "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
+              "settings": {}
             },
-            "product_title_YXxMTj": {
+            "title": {
               "type": "product-title",
-              "name": "t:names.product_title",
               "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
+                "padding-block-start": 16
+              }
             },
-            "price_JQzVV4": {
+            "price": {
               "type": "price",
-              "name": "t:names.product_price",
+              "settings": {}
+            },
+            "add_to_cart": {
+              "type": "add-to-cart-button",
               "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
+                "width": "fill"
+              }
             }
           },
           "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
+            "gallery",
+            "title",
+            "price",
+            "add_to_cart"
           ]
         }
       },
-      "name": "Collezione in evidenza",
       "settings": {
         "collection": "all",
         "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
         "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "promotions": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Offerte Imperdibili",
+            "heading_preset": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Scopri i nostri sconti esclusivi sui prodotti più desiderati. Non perdere l'occasione di portare l'Italia a casa tua.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "label": "Scopri le Offerte",
+            "link": "shopify://collections/all",
+            "style_class": "button-primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "trust": {
+      "type": "multicolumn",
+      "blocks": {
+        "secure": {
+          "type": "column",
+          "settings": {
+            "title": "Pagamenti Sicuri",
+            "text": "<p>Transazioni protette al 100%</p>"
+          }
+        },
+        "delivery": {
+          "type": "column",
+          "settings": {
+            "title": "Spedizione Rapida",
+            "text": "<p>Consegna veloce in tutta Italia</p>"
+          }
+        },
+        "support": {
+          "type": "column",
+          "settings": {
+            "title": "Assistenza Dedicata",
+            "text": "<p>Supporto clienti sempre attivo</p>"
+          }
+        },
+        "returns": {
+          "type": "column",
+          "settings": {
+            "title": "Reso Facile",
+            "text": "<p>30 giorni per restituire i tuoi acquisti</p>"
+          }
+        }
+      },
+      "block_order": [
+        "secure",
+        "delivery",
+        "support",
+        "returns"
+      ],
+      "settings": {
+        "title": "Perché Sceglierci",
+        "color_scheme": "scheme-3",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Iscriviti alla Newsletter",
+            "heading_preset": "h2"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Ricevi aggiornamenti su nuovi arrivi e promozioni esclusive Xophia.</p>"
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email_form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding-block-start": 80,
+        "padding-block-end": 80
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "hero",
+    "categories",
+    "featured_products",
+    "promotions",
+    "trust",
+    "newsletter"
   ]
 }
