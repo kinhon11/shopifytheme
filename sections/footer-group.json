@@ -5,117 +5,36 @@
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
-        "logo_info": {
-          "type": "group",
+        "centered_policies": {
+          "type": "custom-liquid",
           "settings": {
-            "content_direction": "column",
-            "horizontal_alignment": "flex-start",
-            "gap": 16,
-            "width": "fill"
-          },
-          "blocks": {
-            "logo": {
-              "type": "logo",
-              "settings": {
-                "width_desktop": 150,
-                "width_mobile": 100,
-                "alignment": "left"
-              }
-            },
-            "text": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Benvenuti su OddieHouse! Prodotti di alta qualità, progettati per la casa e la famiglia con stile italiano.</p>",
-                "type_preset": "rte"
-              }
-            }
-          },
-          "block_order": [
-            "logo",
-            "text"
-          ]
-        },
-        "quick_links": {
-          "type": "menu",
-          "settings": {
-            "heading": "Link Rapidi",
-            "menu": "footer"
-          }
-        },
-        "policies_menu": {
-          "type": "menu",
-          "settings": {
-            "heading": "Politiche",
-            "use_shop_policies": true
+            "custom_liquid": "<div style=\"text-align: center; display: flex; flex-direction: column; gap: 24px; padding: 40px 0;\">\n  {% for policy in shop.policies %}\n    {% if policy != blank %}\n      <a href=\"{{ policy.url }}\" style=\"color: #ffffff; text-decoration: underline; text-underline-offset: 6px; font-size: 16px;\">{{ policy.title }}</a>\n    {% endif %}\n  {% endfor %}\n</div>"
           }
         }
       },
       "block_order": [
-        "logo_info",
-        "quick_links",
-        "policies_menu"
+        "centered_policies"
       ],
       "settings": {
         "section_width": "page-width",
-        "gap": 40,
+        "gap": 0,
         "color_scheme": "scheme-2",
-        "padding-block-start": 60,
-        "padding-block-end": 60
+        "padding-block-start": 40,
+        "padding-block-end": 20
       }
     },
     "footer_utilities_jLGE8U": {
       "type": "footer-utilities",
-      "blocks": {
-        "footer_copyright_jweRK8": {
-          "type": "footer-copyright",
-          "settings": {
-            "show_powered_by": true,
-            "font_size": "0.75rem",
-            "case": "none"
-          },
-          "blocks": {}
-        },
-        "footer_policy_list_VCdnpa": {
-          "type": "footer-policy-list",
-          "settings": {
-            "font_size": "0.75rem",
-            "case": "none"
-          },
-          "blocks": {}
-        },
-        "social_links_Ew63Kq": {
-          "type": "social-links",
-          "settings": {
-            "facebook_url": "https://www.facebook.com/",
-            "instagram_url": "https://www.instagram.com/",
-            "youtube_url": "https://www.youtube.com/",
-            "tiktok_url": "https://www.tiktok.com/",
-            "twitter_url": "https://x.com/",
-            "threads_url": "",
-            "linkedin_url": "",
-            "bluesky_url": "",
-            "snapchat_url": "",
-            "pinterest_url": "",
-            "tumblr_url": "",
-            "vimeo_url": "",
-            "custom_url": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "footer_copyright_jweRK8",
-        "footer_policy_list_VCdnpa",
-        "social_links_Ew63Kq"
-      ],
+      "blocks": {},
+      "block_order": [],
       "name": "t:names.utilities",
       "settings": {
         "section_width": "page-width",
         "gap": 24,
         "divider_thickness": 0,
         "color_scheme": "scheme-2",
-        "padding-block-start": 20,
-        "padding-block-end": 48
+        "padding-block-start": 0,
+        "padding-block-end": 20
       }
     }
   },
