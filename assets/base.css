@@ -5062,3 +5062,8 @@ h1, h2, h3, .h1, .h2, .h3 {
 .column p {
   color: #4A4A4A;
 }
+
+/* Force product images to display if they were hidden by empty states */
+.ecobio-img-fix {}
+.product-card__wrapper .media { display: block !important; opacity: 1 !important; background: transparent !important; }
+.product-card__image { display: block !important; width: 100% !important; height: auto !important; opacity: 1 !important; }
