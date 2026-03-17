@@ -11,7 +11,7 @@
   endif
 %}
 
-{% if menu != blank or heading != blank %}
+{% if menu != blank or heading != blank or block_settings.use_shop_policies %}
   <accordion-custom
     class="
       menu
@@ -60,7 +60,21 @@
           aria-label="{{ menu.title | escape }}"
         {% endif %}
       >
-        {% if menu %}
+        {% if block_settings.use_shop_policies %}
+          {% if shop.policies.size > 0 %}
+            <ul class="list-unstyled">
+              {% for policy in shop.policies %}
+                {% if policy != blank %}
+                  <li class="menu__item {{ block_settings.link_preset }}">
+                    <a href="{{ policy.url }}" style="text-decoration: underline; text-underline-offset: 4px;">
+                      {{ policy.title }}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% elsif menu %}
           <ul class="list-unstyled">
             {% for link in menu.links %}
               <li class="menu__item {{ block_settings.link_preset }}">
@@ -148,6 +162,12 @@
       "id": "menu",
       "label": "t:settings.menu",
       "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_shop_policies",
+      "label": "Use Shop Policies (Auto-generated)",
+      "default": false
     },
     {
       "type": "text",

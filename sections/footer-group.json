@@ -42,17 +42,18 @@
             "menu": "footer"
           }
         },
-        "newsletter_signup": {
-          "type": "email-signup",
+        "policies_menu": {
+          "type": "menu",
           "settings": {
-            "heading": "Newsletter"
+            "heading": "Politiche",
+            "use_shop_policies": true
           }
         }
       },
       "block_order": [
         "logo_info",
         "quick_links",
-        "newsletter_signup"
+        "policies_menu"
       ],
       "settings": {
         "section_width": "page-width",
