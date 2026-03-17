@@ -6,7 +6,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<h2>Lo Stile Italiano, a Casa Tua</h2><p>Esplora la nostra collezione premium di articoli per la casa, bellezza, accessori e regali. Vivi la dolce vita ogni giorno.</p>",
+            "text": "<h2>Benvenuti su Xophia</h2><p>Il negozio online per il tuo stile di vita europeo moderno. Scorri per scoprire i nostri prodotti.</p>",
             "type_preset": "rte",
             "alignment": "center",
             "color": "var(--color-foreground-heading)"
@@ -17,8 +17,7 @@
           "settings": {
             "label": "Acquista Ora",
             "link": "shopify://collections/all",
-            "style_class": "button-primary",
-            "width": "fit-content"
+            "style_class": "button-primary"
           }
         }
       },
@@ -27,7 +26,7 @@
         "button"
       ],
       "settings": {
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "padding-block-start": 80,
@@ -41,28 +40,42 @@
           "type": "column",
           "settings": {
             "title": "Casa e Cucina",
-            "text": "<p>Eleganti accessori per la tua casa</p>"
+            "text": ""
           }
         },
         "beauty": {
           "type": "column",
           "settings": {
             "title": "Bellezza",
-            "text": "<p>Cura della persona premium</p>"
+            "text": ""
           }
         },
         "accessories": {
           "type": "column",
           "settings": {
             "title": "Accessori",
-            "text": "<p>Stile e dettagli unici</p>"
+            "text": ""
+          }
+        },
+        "gadgets": {
+          "type": "column",
+          "settings": {
+            "title": "Gadget",
+            "text": ""
           }
         },
         "lifestyle": {
           "type": "column",
           "settings": {
             "title": "Stile di Vita",
-            "text": "<p>Il meglio per la tua giornata</p>"
+            "text": ""
+          }
+        },
+        "gifts": {
+          "type": "column",
+          "settings": {
+            "title": "Regali",
+            "text": ""
           }
         }
       },
@@ -70,14 +83,17 @@
         "home",
         "beauty",
         "accessories",
-        "lifestyle"
+        "gadgets",
+        "lifestyle",
+        "gifts"
       ],
       "settings": {
-        "title": "Categorie Popolari",
-        "color_scheme": "scheme-1",
-        "columns_desktop": 4,
+        "title": "Esplora per Categorie",
+        "color_scheme": "scheme-2",
+        "columns_desktop": 6,
         "padding-block-start": 60,
-        "padding-block-end": 60
+        "padding-block-end": 60,
+        "column_alignment": "center"
       }
     },
     "featured_products": {
@@ -91,7 +107,7 @@
             "text": {
               "type": "_product-list-text",
               "settings": {
-                "text": "<h3>Nuovi Arrivi</h3>",
+                "text": "<h3>Prodotti in Evidenza</h3>",
                 "type_preset": "h3"
               }
             }
@@ -105,9 +121,7 @@
           "static": true,
           "settings": {
             "border_radius": 16,
-            "border": "solid",
-            "border_color": "#F1F2F6",
-            "border_width": 1
+            "border": "none"
           },
           "blocks": {
             "gallery": {
@@ -144,30 +158,96 @@
         "layout_type": "grid",
         "columns": 4,
         "color_scheme": "scheme-1",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 60,
+        "padding-block-end": 60
       }
     },
-    "promotions": {
+    "best_sellers": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "text": {
+              "type": "_product-list-text",
+              "settings": {
+                "text": "<h3>I Più Venduti</h3>",
+                "type_preset": "h3"
+              }
+            }
+          },
+          "block_order": [
+            "text"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "static": true,
+          "settings": {
+            "border_radius": 16,
+            "border": "none"
+          },
+          "blocks": {
+            "gallery": {
+              "type": "_product-card-gallery",
+              "settings": {}
+            },
+            "title": {
+              "type": "product-title",
+              "settings": {
+                "padding-block-start": 16
+              }
+            },
+            "price": {
+              "type": "price",
+              "settings": {}
+            },
+            "add_to_cart": {
+              "type": "add-to-cart-button",
+              "settings": {
+                "width": "fill"
+              }
+            }
+          },
+          "block_order": [
+            "gallery",
+            "title",
+            "price",
+            "add_to_cart"
+          ]
+        }
+      },
+      "settings": {
+        "collection": "all",
+        "layout_type": "grid",
+        "columns": 4,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    },
+    "promotion_banner": {
       "type": "image-with-text",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Offerte Imperdibili",
+            "heading": "Offerte Esclusive Xophia",
             "heading_preset": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Scopri i nostri sconti esclusivi sui prodotti più desiderati. Non perdere l'occasione di portare l'Italia a casa tua.</p>"
+            "text": "<p>Approfitta degli sconti sulle tendenze dello stile di vita europeo. Qualità e design unici, direttamente a casa tua.</p>"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "label": "Scopri le Offerte",
+            "label": "Scopri i Dettagli",
             "link": "shopify://collections/all",
             "style_class": "button-primary"
           }
@@ -183,39 +263,39 @@
         "desktop_image_width": "medium",
         "layout": "image_first",
         "desktop_content_position": "middle",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 60,
+        "padding-block-end": 60
       }
     },
-    "trust": {
+    "customer_trust": {
       "type": "multicolumn",
       "blocks": {
         "secure": {
           "type": "column",
           "settings": {
             "title": "Pagamenti Sicuri",
-            "text": "<p>Transazioni protette al 100%</p>"
+            "text": "<p>100% transazioni protette</p>"
           }
         },
         "delivery": {
           "type": "column",
           "settings": {
             "title": "Spedizione Rapida",
-            "text": "<p>Consegna veloce in tutta Italia</p>"
+            "text": "<p>In tutta Italia entro 48h</p>"
           }
         },
         "support": {
           "type": "column",
           "settings": {
-            "title": "Assistenza Dedicata",
-            "text": "<p>Supporto clienti sempre attivo</p>"
+            "title": "Supporto Clienti",
+            "text": "<p>A tua disposizione 24/7</p>"
           }
         },
         "returns": {
           "type": "column",
           "settings": {
             "title": "Reso Facile",
-            "text": "<p>30 giorni per restituire i tuoi acquisti</p>"
+            "text": "<p>Entro 30 giorni</p>"
           }
         }
       },
@@ -226,7 +306,7 @@
         "returns"
       ],
       "settings": {
-        "title": "Perché Sceglierci",
+        "title": "Perché Xophia",
         "color_scheme": "scheme-3",
         "columns_desktop": 4,
         "column_alignment": "center",
@@ -240,14 +320,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Iscriviti alla Newsletter",
+            "heading": "Unisciti a Noi",
             "heading_preset": "h2"
           }
         },
         "paragraph": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Ricevi aggiornamenti su nuovi arrivi e promozioni esclusive Xophia.</p>"
+            "text": "<p>Iscriviti per ricevere offerte esclusive e novità dal mondo Xophia.</p>"
           }
         },
         "email_form": {
@@ -261,7 +341,7 @@
         "email_form"
       ],
       "settings": {
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "padding-block-start": 80,
         "padding-block-end": 80
       }
@@ -271,8 +351,9 @@
     "hero",
     "categories",
     "featured_products",
-    "promotions",
-    "trust",
+    "best_sellers",
+    "promotion_banner",
+    "customer_trust",
     "newsletter"
   ]
 }
