@@ -402,13 +402,14 @@
 
 {% stylesheet %}
   .header-actions__action svg, .header-actions__cart-icon svg, .search-action svg, .account-button__icon { 
-    width: 25px !important; 
-    height: 25px !important; 
+    width: 22px !important; 
+    height: 22px !important; 
   }
   .menu-list__link, .header-actions__action, .header-actions__text-style { 
-    font-size: 1.125rem !important; 
+    font-size: 0.9375rem !important; /* 15px - elegant and balanced */
+    letter-spacing: 0.05em;
   }
-  .search-action--text { font-size: 1.125rem !important; }
+  .search-action--text { font-size: 0.9375rem !important; }
   body {
     --header-height: 60px;
     --header-group-height: var(--header-height);
