@@ -41,8 +41,8 @@
   {{ block.shopify_attributes }}
 >
   {% liquid
-    assign logo_width = 150
-    assign logo_width_mobile = 100
+    assign logo_width = 250
+    assign logo_width_mobile = 160
     if settings.logo != blank
       assign logo_width = settings.logo_height | times: settings.logo.aspect_ratio | ceil
       assign logo_width_mobile = settings.logo_height_mobile | times: settings.logo.aspect_ratio | ceil
@@ -63,7 +63,7 @@
     class="header-logo__image-container header-logo__image-container--original"
     data-testid="header-logo"
   >
-    <img src="{{ 'logo.png' | asset_url }}" class="header-logo__image" style="height: {{ settings.logo_height }}px; width: auto;" alt="{{ shop.name }}" loading="eager">
+    <img src="{{ 'logo.png' | asset_url }}" class="header-logo__image" style="height: auto; width: {{ logo_width }}px; max-width: 100%;" alt="{{ shop.name }}" loading="eager">
   </span>
 
   {% if use_inverse_logo %}
