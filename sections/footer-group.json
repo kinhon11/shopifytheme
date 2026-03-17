@@ -2,44 +2,45 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
-    "footer_m9NzUG": {
+    "footer": {
       "type": "footer",
       "blocks": {
-        "centered_policies": {
-          "type": "custom-liquid",
+        "newsletter": {
+          "type": "newsletter",
           "settings": {
-            "custom_liquid": "<div style=\"text-align: center; display: flex; flex-direction: column; gap: 24px; padding: 40px 0;\">\n  {% for policy in shop.policies %}\n    {% if policy != blank %}\n      <a href=\"{{ policy.url }}\" style=\"color: #ffffff; text-decoration: underline; text-underline-offset: 6px; font-size: 16px;\">{{ policy.title }}</a>\n    {% endif %}\n  {% endfor %}\n</div>"
+            "heading": "ISCRIVITI ALLA NEWSLETTER",
+            "text": "<p>Ricevi subito il 10% di sconto sul tuo primo ordine e resta aggiornato su tutte le novit├á.</p>"
+          }
+        },
+        "customer_service": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Servizio Clienti",
+            "menu": "footer"
+          }
+        },
+        "info": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Informazioni Legali",
+            "menu": "main-menu"
           }
         }
       },
       "block_order": [
-        "centered_policies"
+        "newsletter",
+        "customer_service",
+        "info"
       ],
       "settings": {
-        "section_width": "page-width",
-        "gap": 0,
         "color_scheme": "scheme-2",
-        "padding-block-start": 40,
-        "padding-block-end": 20
-      }
-    },
-    "footer_utilities_jLGE8U": {
-      "type": "footer-utilities",
-      "blocks": {},
-      "block_order": [],
-      "name": "t:names.utilities",
-      "settings": {
-        "section_width": "page-width",
-        "gap": 24,
-        "divider_thickness": 0,
-        "color_scheme": "scheme-2",
-        "padding-block-start": 0,
-        "padding-block-end": 20
+        "margin_top": 0,
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
   "order": [
-    "footer_m9NzUG",
-    "footer_utilities_jLGE8U"
+    "footer"
   ]
 }
