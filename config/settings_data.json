@@ -342,6 +342,27 @@
           "selected_variant_hover_border_color": "#1a1a1a"
         }
       }
+    },
+    "sections": {
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "policy_list": {
+            "type": "footer-policy-list",
+            "settings": {
+              "font_size": "0.875rem"
+            }
+          }
+        },
+        "block_order": [
+          "policy_list"
+        ],
+        "settings": {
+          "color_scheme": "scheme-2",
+          "show_policy": true,
+          "payment_enable": true
+        }
+      }
     }
   },
   "presets": {
