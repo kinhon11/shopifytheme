@@ -1,12 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
     "hero_jVaWmY": {
       "type": "hero",
@@ -15,7 +7,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
+            "text": "<p>Scopri i nostri ultimi prodotti</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -41,7 +33,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop all",
+            "label": "Acquista tutto",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
@@ -155,7 +147,7 @@
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
               "settings": {
-                "label": "View all",
+                "label": "Vedi tutto",
                 "open_in_new_tab": false,
                 "style_class": "link",
                 "width": "fit-content",
@@ -261,7 +253,7 @@
           ]
         }
       },
-      "name": "Featured collection",
+      "name": "Collezione in evidenza",
       "settings": {
         "collection": "all",
         "layout_type": "grid",
