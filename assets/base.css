@@ -4944,3 +4944,88 @@ product-recommendations:has([data-has-recommendations='false']) {
     translate: 0px var(--atc-destination, 0px);
   }
 }
+
+/* PREMIUM ITALIAN LIFESTYLE MODIFICATIONS */
+
+/* 1. Global Spacing & Typography Refinements */
+body {
+  letter-spacing: 0.02em;
+}
+
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+  letter-spacing: 0em;
+  font-weight: 500;
+}
+
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* 2. Product & Collection Cards hover animations */
+.product-card, .collection-card, .column {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.product-card:hover, .collection-card:hover, .column:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06) !important;
+}
+
+.product-card__image, .collection-card__image {
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.product-card:hover .product-card__image, 
+.collection-card:hover .collection-card__image {
+  transform: scale(1.04) !important;
+}
+
+/* 3. Button Enhancements */
+.button, .button-secondary {
+  border-radius: 30px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.3s ease !important;
+  padding: 1.2rem 2.8rem !important;
+}
+
+.button:hover, .button-secondary:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 4. Trust Section / Multicolumn cleanups */
+.column {
+  background: white;
+  padding: 2.5rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+}
+
+.column h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.column p {
+  color: var(--color-foreground);
+  opacity: 0.8;
+}
+
+/* 5. Minimalist Header Enhancements */
+.header-actions__action {
+  transition: opacity 0.3s ease;
+}
+.header-actions__action:hover {
+  opacity: 0.6;
+}
+
