@@ -4945,95 +4945,120 @@ product-recommendations:has([data-has-recommendations='false']) {
   }
 }
 
-/* XOPHIA PREMIUM LIFESTYLE AESTHETIC */
-/* These rules target specific classes to ensure layout safety while maximizing visual flair */
+/* ECOBIOBOUTIQUE MINIMALIST AESTHETIC */
 
-/* 1. Header Glassmorphism (Italian Elegance) */
+/* 1. Header Clean Design (EcoBio Style) */
 .header-wrapper--sticky {
-  background: rgba(255, 255, 255, 0.85) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(220, 200, 200, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-bottom: 1px solid #EBEBEB;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
 }
 
-/* 2. Advanced Card Hover Effects (Lifestyle Vibe) */
+.header-actions__action svg, .search-action svg, .account-button__icon { 
+  stroke-width: 1.5; /* Line-art minimalist icons */
+}
+
+/* 2. Flat Modern Product Cards */
 .product-card, .collection-card {
   position: relative;
   overflow: hidden;
-  border-radius: 20px !important;
-  background: #ffffff;
-  border: 1px solid #fee8e9;
-  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 8px !important;
+  background: transparent !important;
+  border: none !important; /* EcoBio avoids hard card borders */
+  transition: transform 0.4s ease;
 }
 
 .product-card:hover, .collection-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(241, 120, 125, 0.12); /* Subtle coral glow */
-  border-color: rgba(241, 120, 125, 0.3);
+  transform: translateY(-4px); /* Very subtle float */
+}
+
+.product-card__content, .product-card__info {
+  padding: 16px 0 !important; /* No padding on sides so image fits flush if needed, but text needs room */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; /* Centered like EcoBio */
+  text-align: center !important;
 }
 
 .product-card__image {
-  border-radius: 20px 20px 0 0;
-  transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 8px;
+  transition: transform 0.6s ease;
 }
 
 .product-card:hover .product-card__image {
-  transform: scale(1.05); /* Soft lifestyle zoom */
+  transform: scale(1.03); /* Minimal zoom */
 }
 
-/* 3. Luxurious Buttons */
+/* Typography Centering */
+.product-card__title {
+  color: #1A1A1A !important;
+  transition: color 0.3s ease;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  margin-bottom: 8px !important;
+  text-transform: capitalize;
+}
+
+.price {
+  font-weight: 500 !important;
+  color: #E43F5A !important; /* Primary Brand Pink/Red for prices */
+  font-size: 15px !important;
+  justify-content: center !important;
+}
+
+/* 3. Iconic Pill Buttons (EcoBio Signature) */
 .button, .button-primary, .button-secondary {
-  border-radius: 30px !important;
+  border-radius: 40px !important; /* Perfect Pill */
   font-weight: 600 !important;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 16px 36px !important;
-  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.button-primary {
-  background: linear-gradient(135deg, #F1787D 0%, #E05D63 100%) !important;
+  letter-spacing: 0.04em;
+  padding: 14px 32px !important;
+  background: #E43F5A !important; /* Solid Bio Red */
   border: none !important;
-  color: white !important;
-  box-shadow: 0 8px 16px rgba(241, 120, 125, 0.25) !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  transition: background 0.3s ease, transform 0.3s ease !important;
 }
 
-.button-primary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(241, 120, 125, 0.4) !important;
-  filter: brightness(1.05);
+.button:hover, .button-primary:hover, .button-secondary:hover {
+  background: #C4344B !important; /* Darker solid red on hover */
+  transform: translateY(-2px) !important;
 }
 
-/* 4. Smooth Typography Interactions */
+/* 4. Secondary outlines for subtle actions */
+.button-secondary {
+  background: transparent !important;
+  border: 1.5px solid #1A1A1A !important;
+  color: #1A1A1A !important;
+}
+
+.button-secondary:hover {
+  background: #1A1A1A !important;
+  color: #FFFFFF !important;
+}
+
+/* 5. Clean Headings */
 h1, h2, h3, .h1, .h2, .h3 {
   font-family: inherit;
-  color: #2C3A47;
-  letter-spacing: -0.01em; 
+  color: #1A1A1A;
+  letter-spacing: 0; 
+  font-weight: 600 !important;
 }
 
-.product-card__title {
-  color: #2C3A47 !important;
-  transition: color 0.3s ease;
-  font-weight: 500 !important;
+.column {
+  border-radius: 8px !important;
+  background: #FFFFFF;
+  padding: 32px 24px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.03); /* Extremely soft shadow */
+  text-align: center;
 }
 
-.product-card:hover .product-card__title {
-  color: #F1787D !important; /* Title turns Coral on hover */
+.column h3 {
+  color: #1A1A1A;
+  margin-bottom: 8px;
 }
 
-/* 5. Minimalist inputs and forms */
-.input, .select, .textarea, input[type="text"], input[type="email"] {
-  border-radius: 12px !important;
-  border: 1px solid #fee8e9 !important;
-  background-color: #fbfbfb !important;
-  padding: 14px 20px !important;
-  transition: all 0.3s ease !important;
-}
-
-.input:focus, .select:focus, .textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
-  border-color: #F1787D !important;
-  box-shadow: 0 0 0 3px rgba(241, 120, 125, 0.15) !important;
-  outline: none;
+.column p {
+  color: #4A4A4A;
 }
