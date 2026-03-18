@@ -1,4 +1,4 @@
-
+﻿
 
 {% liquid
   assign order = 'logo,menu,localization,search,drawer_search,actions'
@@ -401,15 +401,6 @@
 ></script>
 
 {% stylesheet %}
-  .header-actions__action svg, .header-actions__cart-icon svg, .search-action svg, .account-button__icon { 
-    width: 22px !important; 
-    height: 22px !important; 
-  }
-  .menu-list__link, .header-actions__action, .header-actions__text-style { 
-    font-size: 0.9375rem !important; /* 15px - elegant and balanced */
-    letter-spacing: 0.05em;
-  }
-  .search-action--text { font-size: 0.9375rem !important; }
   body {
     --header-height: 60px;
     --header-group-height: var(--header-height);
@@ -1655,14 +1646,3 @@
   "presets": []
 }
 {% endschema %}
-
-{% style %}
-.header-fix-ecobio {}
-.header-wrapper { padding-top: 0 !important; padding-bottom: 0 !important; }
-.header__columns { padding: 10px 0 !important; min-height: unset !important; }
-.header__heading-logo { max-width: 140px !important; width: 140px !important; height: auto !important; }
-.header-actions__action { padding: 8px !important; }
-/* Fix the solid red pill currency selector which looks ugly */
-localization-form .button { background: transparent !important; color: #111 !important; border: 1px solid #ddd !important; padding: 4px 12px !important; }
-localization-form .button svg { fill: #111 !important; stroke: #111 !important; width: 10px !important; }
-{% endstyle %}

@@ -1,4 +1,4 @@
-* {
+﻿* {
   box-sizing: border-box;
 }
 
@@ -440,7 +440,7 @@ p:empty {
   );
 
   /* Offset for full-width sections to account for the page margin,
-  used for Marquee — note that --util-page-margin-offset doesn't work here */
+  used for Marquee ΓÇö note that --util-page-margin-offset doesn't work here */
   --full-page-margin-inline-offset: calc(((100vw - var(--full-page-grid-central-column-width)) / 2) * -1);
 
   width: 100%;
@@ -2704,7 +2704,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
     --spacing-scale: var(--spacing-scale-default);
   }
 
-  /* Must disable this, when you use these with calc and another unit type, things break — see logo.liquid */
+  /* Must disable this, when you use these with calc and another unit type, things break ΓÇö see logo.liquid */
   /* stylelint-disable length-zero-no-unit */
   --padding-block: 0px;
   --padding-block-start: var(--padding-block, 0px);
@@ -4944,126 +4944,3 @@ product-recommendations:has([data-has-recommendations='false']) {
     translate: 0px var(--atc-destination, 0px);
   }
 }
-
-/* ECOBIOBOUTIQUE MINIMALIST AESTHETIC */
-
-/* 1. Header Clean Design (EcoBio Style) */
-.header-wrapper--sticky {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border-bottom: 1px solid #EBEBEB;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
-}
-
-.header-actions__action svg, .search-action svg, .account-button__icon { 
-  stroke-width: 1.5; /* Line-art minimalist icons */
-}
-
-/* 2. Flat Modern Product Cards */
-.product-card, .collection-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px !important;
-  background: transparent !important;
-  border: none !important; /* EcoBio avoids hard card borders */
-  transition: transform 0.4s ease;
-}
-
-.product-card:hover, .collection-card:hover {
-  transform: translateY(-4px); /* Very subtle float */
-}
-
-.product-card__content, .product-card__info {
-  padding: 16px 0 !important; /* No padding on sides so image fits flush if needed, but text needs room */
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important; /* Centered like EcoBio */
-  text-align: center !important;
-}
-
-.product-card__image {
-  border-radius: 8px;
-  transition: transform 0.6s ease;
-}
-
-.product-card:hover .product-card__image {
-  transform: scale(1.03); /* Minimal zoom */
-}
-
-/* Typography Centering */
-.product-card__title {
-  color: #1A1A1A !important;
-  transition: color 0.3s ease;
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  margin-bottom: 8px !important;
-  text-transform: capitalize;
-}
-
-.price {
-  font-weight: 500 !important;
-  color: #E43F5A !important; /* Primary Brand Pink/Red for prices */
-  font-size: 15px !important;
-  justify-content: center !important;
-}
-
-/* 3. Iconic Pill Buttons (EcoBio Signature) */
-.button, .button-primary, .button-secondary {
-  border-radius: 40px !important; /* Perfect Pill */
-  font-weight: 600 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 14px 32px !important;
-  background: #E43F5A !important; /* Solid Bio Red */
-  border: none !important;
-  color: #FFFFFF !important;
-  box-shadow: none !important;
-  transition: background 0.3s ease, transform 0.3s ease !important;
-}
-
-.button:hover, .button-primary:hover, .button-secondary:hover {
-  background: #C4344B !important; /* Darker solid red on hover */
-  transform: translateY(-2px) !important;
-}
-
-/* 4. Secondary outlines for subtle actions */
-.button-secondary {
-  background: transparent !important;
-  border: 1.5px solid #1A1A1A !important;
-  color: #1A1A1A !important;
-}
-
-.button-secondary:hover {
-  background: #1A1A1A !important;
-  color: #FFFFFF !important;
-}
-
-/* 5. Clean Headings */
-h1, h2, h3, .h1, .h2, .h3 {
-  font-family: inherit;
-  color: #1A1A1A;
-  letter-spacing: 0; 
-  font-weight: 600 !important;
-}
-
-.column {
-  border-radius: 8px !important;
-  background: #FFFFFF;
-  padding: 32px 24px;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.03); /* Extremely soft shadow */
-  text-align: center;
-}
-
-.column h3 {
-  color: #1A1A1A;
-  margin-bottom: 8px;
-}
-
-.column p {
-  color: #4A4A4A;
-}
-
-/* Force product images to display if they were hidden by empty states */
-.ecobio-img-fix {}
-.product-card__wrapper .media { display: block !important; opacity: 1 !important; background: transparent !important; }
-.product-card__image { display: block !important; width: 100% !important; height: auto !important; opacity: 1 !important; }
