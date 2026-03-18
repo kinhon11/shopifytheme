@@ -1,1461 +1,721 @@
-/* ============================================================
-   TUMBLE-INSPIRED DESIGN SYSTEM
-   Inspired by tumbleliving.com - Clean, minimal, premium feel
-   ============================================================ */
+/* ==========================================================
+   TUMBLE LIVING INSPIRED DESIGN
+   Warm neutral, clean, minimal - matching tumbleliving.com
+   ========================================================== */
 
-/* ============================================================
-   1. FONTS
-   ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 
-/* ============================================================
-   2. GLOBAL VARIABLES & COLOR PALETTE
-   Inspired by Tumble's warm neutral palette
-   ============================================================ */
+/* =====================
+   VARIABLES
+   ===================== */
 :root {
-  --tumble-cream: #F9F6F2;
-  --tumble-warm-white: #FDFAF7;
-  --tumble-taupe: #C3B5A0;
-  --tumble-dark-brown: #3D3028;
-  --tumble-mid-brown: #7A6655;
-  --tumble-light-brown: #B09B88;
-  --tumble-border: #E8E0D8;
-  --tumble-text: #2C2118;
-  --tumble-text-light: #6B5D52;
-  --tumble-accent: #8B7355;
-  --tumble-green-badge: #4A7C59;
-  --tumble-primary-btn: #2C2118;
-  --tumble-btn-hover: #3D3028;
-  --tumble-font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --tumble-font-heading: 'DM Serif Display', Georgia, serif;
-  --tumble-announcement-bg: #3D3028;
-  --tumble-announcement-text: #F9F6F2;
-  --tumble-footer-bg: #2C2118;
-  --tumble-footer-text: #D4C8BC;
-  --tumble-footer-heading: #F9F6F2;
-  --tumble-radius: 2px;
-  --tumble-radius-md: 6px;
-  --tumble-radius-lg: 12px;
-  --tumble-shadow: 0 2px 20px rgba(44, 33, 24, 0.08);
-  --tumble-shadow-hover: 0 8px 30px rgba(44, 33, 24, 0.15);
+  --c-cream:       #FDFAF7;
+  --c-cream2:      #F9F6F2;
+  --c-cream3:      #F0EBE3;
+  --c-taupe:       #C3B5A0;
+  --c-brown:       #8B7355;
+  --c-dark:        #2C2118;
+  --c-dark2:       #3D3028;
+  --c-text:        #2C2118;
+  --c-text-muted:  #5A4A3F;
+  --c-border:      #E8E0D8;
+  --c-footer-bg:   #2C2118;
+  --c-footer-text: #D4C8BC;
+
+  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'DM Serif Display', Georgia, serif;
+
+  --radius:    6px;
+  --radius-sm: 4px;
+  --radius-lg: 12px;
 }
 
-/* ============================================================
-   3. BODY & GLOBAL BASE
-   ============================================================ */
+/* =====================
+   1. BASE
+   ===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: var(--tumble-font-body) !important;
-  background-color: var(--tumble-warm-white) !important;
-  color: var(--tumble-text) !important;
+  font-family: var(--font-body) !important;
+  background-color: var(--c-cream) !important;
+  color: var(--c-text) !important;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ============================================================
-   4. ANNOUNCEMENT BAR
-   Pill-shaped or full-width warm dark bar like Tumble
-   ============================================================ */
-.announcement-bar {
-  background-color: var(--tumble-announcement-bg) !important;
-  color: var(--tumble-announcement-text) !important;
-  padding: 10px 24px !important;
-  text-align: center;
+h1, h2, h3, h4 {
+  font-family: var(--font-heading) !important;
+  color: var(--c-text) !important;
+  font-weight: 400 !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =====================
+   2. ANNOUNCEMENT BAR
+   ===================== */
+.announcement-bar,
+.header-announcements,
+[class*="announcement"] {
+  background: var(--c-dark) !important;
+  color: var(--c-cream2) !important;
+}
+
+.announcement-bar *,
+.header-announcements * {
+  color: var(--c-cream2) !important;
+  font-family: var(--font-body) !important;
   font-size: 13px !important;
-  letter-spacing: 0.02em;
-  font-weight: 400;
 }
 
-.announcement-bar .paragraph,
-.announcement-bar p,
-.announcement-bar a,
-.announcement-bar span {
-  color: var(--tumble-announcement-text) !important;
-  font-size: 13px !important;
-  font-family: var(--tumble-font-body) !important;
+/* =====================
+   3. HEADER
+   ===================== */
+header,
+.header-section,
+.header-wrapper,
+header-component,
+#header-component,
+.shopify-section-group-header-group {
+  background: var(--c-cream) !important;
+  border-bottom: 1px solid var(--c-border) !important;
 }
 
-.announcement-bar a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.announcement-bar a:hover {
-  opacity: 0.8;
-}
-
-/* ============================================================
-   5. HEADER
-   Clean, minimal with bottom border - inspired by Tumble's header
-   ============================================================ */
+/* Remove any colored background from header */
 .header,
-.header__row {
-  background-color: var(--tumble-warm-white) !important;
+.header__row,
+.header__row--top,
+.header__row--bottom {
+  background: var(--c-cream) !important;
+  background-color: var(--c-cream) !important;
 }
 
-/* Top utility bar (account, favorites, cart icons) */
-.header__row--top {
-  background-color: var(--tumble-warm-white) !important;
-  border-bottom: 1px solid var(--tumble-border) !important;
+/* Logo */
+.header-logo,
+.header__heading-logo,
+.header__heading {
+  font-family: var(--font-heading) !important;
+  color: var(--c-text) !important;
 }
 
-/* Header actions (icons) styling */
-.header-actions__action,
-.search-action,
-.account-button__icon {
-  color: var(--tumble-text) !important;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-.header-actions__action:hover,
-.search-action:hover,
-.account-button__icon:hover {
-  opacity: 1;
-}
-
-/* Logo area */
-.header-logo {
-  font-family: var(--tumble-font-heading) !important;
-  color: var(--tumble-text) !important;
-}
-
-.header-logo img {
-  max-height: 40px;
-  width: auto;
-}
-
-/* Navigation menu links */
+/* Nav links */
 .menu-list__link,
 .header-menu a,
-.header-menu .button {
-  font-family: var(--tumble-font-body) !important;
+.header-menu button,
+.header__menu-item a,
+nav a {
+  font-family: var(--font-body) !important;
   font-size: 14px !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
+  color: var(--c-text) !important;
   letter-spacing: 0.01em !important;
-  color: var(--tumble-text) !important;
   text-transform: none !important;
-  transition: color 0.2s ease !important;
-  padding: 6px 2px !important;
-  position: relative;
 }
 
 .menu-list__link:hover,
 .header-menu a:hover {
-  color: var(--tumble-accent) !important;
+  color: var(--c-brown) !important;
+  opacity: 1 !important;
 }
 
-/* Menu underline effect on hover */
-.menu-list__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: var(--tumble-text);
-  transform: scaleX(0);
-  transition: transform 0.2s ease;
+/* Header icons */
+.header-actions__action svg,
+.header-actions__cart-icon svg,
+.search-action svg,
+.account-button svg {
+  color: var(--c-text) !important;
 }
 
-.menu-list__link:hover::after {
-  transform: scaleX(1);
+/* =====================
+   4. PRODUCT PAGE LAYOUT
+   ===================== */
+.product-information,
+.template-product main,
+[data-testid="product-information"] {
+  background: var(--c-cream) !important;
 }
 
-/* ============================================================
-   6. PRODUCT PAGE - MAIN LAYOUT
-   2-column: large image left, details right
-   ============================================================ */
-
-/* Product page background */
-.template-product .content-for-layout,
-body[data-template*="product"] .content-for-layout {
-  background-color: var(--tumble-warm-white);
-}
-
-/* Product info section padding */
-.product-information {
-  padding-top: 24px !important;
-  padding-bottom: 48px !important;
-}
-
-/* ============================================================
-   7. PRODUCT GALLERY (Left column)
-   Tumble uses large main image with small thumbnails below
-   ============================================================ */
-.product-media-gallery__list {
-  gap: 8px !important;
-}
-
-.product-media-gallery__main .product-media-gallery__item {
-  border-radius: var(--tumble-radius-md) !important;
-  overflow: hidden;
-}
-
-/* Thumbnail strip styling */
-.product-media-gallery__thumbnails {
-  gap: 8px !important;
-}
-
-.product-media-gallery__thumbnail {
-  border-radius: var(--tumble-radius) !important;
-  border: 2px solid transparent !important;
-  overflow: hidden;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
-}
-
-.product-media-gallery__thumbnail[aria-pressed="true"],
-.product-media-gallery__thumbnail:hover {
-  border-color: var(--tumble-text) !important;
-}
-
-/* Media images */
-.product-media img {
-  border-radius: var(--tumble-radius-md);
-}
-
-/* ============================================================
-   8. PRODUCT DETAILS (Right column)
-   Clean stacked layout: breadcrumb, title, rating, price,
-   features, variant picker, ATC, trust signals
-   ============================================================ */
-.product-details {
-  padding-left: 32px !important;
-  background: var(--tumble-warm-white);
-}
-
-@media screen and (max-width: 749px) {
-  .product-details {
-    padding-left: 0 !important;
-    padding-top: 24px !important;
-  }
-}
-
-/* Product title */
-.product-details .product-title,
+/* =====================
+   5. PRODUCT TITLE
+   ===================== */
 .product-details h1,
-.product-details h2.title {
-  font-family: var(--tumble-font-heading) !important;
-  font-size: 28px !important;
+.product-details h2,
+.product-details h3,
+.product-details [class*="title"] {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(24px, 3vw, 34px) !important;
   font-weight: 400 !important;
-  color: var(--tumble-text) !important;
-  line-height: 1.25 !important;
-  margin-bottom: 12px !important;
+  line-height: 1.2 !important;
+  color: var(--c-text) !important;
+  letter-spacing: -0.01em !important;
 }
 
-@media screen and (min-width: 990px) {
-  .product-details .product-title,
-  .product-details h1,
-  .product-details h2.title {
-    font-size: 34px !important;
-  }
+/* Horizon theme wraps title in a text-block */
+.product-details .text-block h1,
+.product-details .text-block h2,
+.product-details .paragraph h1,
+.product-details .paragraph h2 {
+  font-family: var(--font-heading) !important;
+  font-weight: 400 !important;
+  color: var(--c-text) !important;
 }
 
-/* Star ratings */
-.product-details .product-reviews-summary,
-.product-details .review-stars {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 16px;
-}
-
-/* Price display */
-.product-details .price-wrapper,
-.product-details .price {
-  margin-bottom: 20px;
-}
-
-.product-details .price__current,
-.product-details .price-item--regular,
-.product-details .price-item--sale {
-  font-family: var(--tumble-font-body) !important;
-  font-size: 22px !important;
+/* =====================
+   6. PRICE
+   ===================== */
+.price__current,
+.price-item--regular,
+.price-item--sale,
+.price .money {
+  font-family: var(--font-body) !important;
+  font-size: 20px !important;
   font-weight: 600 !important;
-  color: var(--tumble-text) !important;
+  color: var(--c-text) !important;
 }
 
-.product-details .price-item--compare {
-  font-size: 16px !important;
-  color: var(--tumble-text-light) !important;
+.price-item--compare-at,
+.price-item--compare {
   text-decoration: line-through !important;
+  color: var(--c-text-muted) !important;
   font-weight: 400 !important;
+  font-size: 16px !important;
 }
 
-/* ============================================================
-   9. FEATURE BADGES / PILLS
-   Horizontal scrollable feature pills like Tumble
-   "Cushioned Pad · Machine Washable · Corner Pockets"
-   ============================================================ */
-.tumble-features-bar {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 0 0 12px;
-  margin-bottom: 16px;
-}
-
-.tumble-features-bar::-webkit-scrollbar {
-  display: none;
-}
-
-.tumble-feature-pill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  background: var(--tumble-cream);
-  border: 1px solid var(--tumble-border);
-  border-radius: 40px;
-  white-space: nowrap;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--tumble-text);
-  flex-shrink: 0;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.tumble-feature-pill:hover {
-  background-color: var(--tumble-border);
-}
-
-.tumble-feature-pill svg,
-.tumble-feature-pill .icon {
-  width: 16px;
-  height: 16px;
-  color: var(--tumble-accent);
-  flex-shrink: 0;
-}
-
-/* ============================================================
-   10. VARIANT PICKER
-   Tumble uses clean swatch/size selectors
-   ============================================================ */
-.variant-picker {
-  margin-bottom: 20px !important;
-}
-
-.variant-picker__label {
+/* =====================
+   7. VARIANT BUTTONS
+   ===================== */
+.variant-input-wrap,
+.variant-picker__option,
+.swatch-input__btn,
+.variant-button,
+.variant-option-btn {
+  border: 1.5px solid var(--c-border) !important;
+  border-radius: var(--radius) !important;
+  background: var(--c-cream) !important;
+  color: var(--c-text) !important;
+  font-family: var(--font-body) !important;
   font-size: 13px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  color: var(--tumble-text) !important;
-  margin-bottom: 10px !important;
-  display: block;
-}
-
-/* Swatch buttons */
-.swatch-button,
-.variant-swatch {
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50% !important;
-  border: 2px solid transparent !important;
+  font-weight: 500 !important;
+  padding: 9px 16px !important;
+  transition: all 0.2s ease !important;
   cursor: pointer;
-  transition: border-color 0.2s ease, transform 0.1s ease;
 }
 
-.swatch-button:hover,
-.variant-swatch:hover {
-  border-color: var(--tumble-text) !important;
-  transform: scale(1.05);
+.variant-input-wrap:hover,
+.swatch-input__btn:hover,
+.variant-button:hover {
+  border-color: var(--c-text) !important;
+  background: var(--c-cream2) !important;
 }
 
-.swatch-button[aria-checked="true"],
-.variant-swatch[aria-checked="true"],
-.swatch-button.active,
-.variant-swatch.active {
-  border-color: var(--tumble-text) !important;
-  box-shadow: 0 0 0 2px var(--tumble-warm-white), 0 0 0 4px var(--tumble-text) !important;
+/* Selected variant */
+.variant-input-wrap:has(input:checked),
+.variant-input-wrap.selected,
+.swatch-input__btn.selected,
+.variant-button[aria-checked="true"],
+.variant-button.selected {
+  background: var(--c-text) !important;
+  color: var(--c-cream2) !important;
+  border-color: var(--c-text) !important;
 }
 
-/* ============================================================
-   11. OPTION TABS (Rug & Pad Set / Extra Rug Cover)
-   Tumble uses toggleable tab-style option selectors
-   ============================================================ */
-.tumble-option-tabs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.tumble-option-tab {
-  border: 1.5px solid var(--tumble-border);
-  border-radius: var(--tumble-radius-md);
-  padding: 14px;
-  cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-  background: var(--tumble-warm-white);
-}
-
-.tumble-option-tab.active,
-.tumble-option-tab[aria-selected="true"] {
-  border-color: var(--tumble-text);
-  background: var(--tumble-cream);
-}
-
-.tumble-option-tab .tab-title {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--tumble-text);
-  margin-bottom: 4px;
-}
-
-.tumble-option-tab .tab-desc {
-  font-size: 12px;
-  color: var(--tumble-text-light);
-  line-height: 1.4;
-}
-
-/* ============================================================
-   12. QUANTITY SELECTOR
-   Clean increment/decrement buttons
-   ============================================================ */
-.quantity-selector {
-  border: 1.5px solid var(--tumble-border) !important;
-  border-radius: var(--tumble-radius-md) !important;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  background: var(--tumble-warm-white);
-}
-
-.quantity-selector__decrease,
-.quantity-selector__increase {
-  background: transparent !important;
-  border: none !important;
-  padding: 10px 16px !important;
-  cursor: pointer;
-  color: var(--tumble-text) !important;
-  font-size: 18px !important;
-  font-weight: 300 !important;
-  transition: background-color 0.15s ease;
-}
-
-.quantity-selector__decrease:hover,
-.quantity-selector__increase:hover {
-  background-color: var(--tumble-cream) !important;
-}
-
-.quantity-selector__value {
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  color: var(--tumble-text) !important;
-  min-width: 40px;
-  text-align: center;
-}
-
-/* ============================================================
-   13. ADD TO CART BUTTON
-   Large, dark, rounded - Tumble's primary CTA
-   ============================================================ */
-.add-to-cart-button,
-.product-form__submit,
+/* =====================
+   8. ADD TO CART BUTTON
+   ===================== */
+.shopify-payment-button,
 button[name="add"],
-.button.button--primary.add-to-cart {
-  background-color: var(--tumble-primary-btn) !important;
-  color: var(--tumble-cream) !important;
+.product-form__submit,
+form[action*="/cart/add"] button[type="submit"],
+[data-testid="add-to-cart-button"] {
+  background-color: var(--c-dark) !important;
+  color: var(--c-cream2) !important;
   border: none !important;
-  border-radius: var(--tumble-radius-md) !important;
-  font-family: var(--tumble-font-body) !important;
+  border-radius: var(--radius) !important;
+  font-family: var(--font-body) !important;
   font-size: 15px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.02em !important;
-  padding: 16px 32px !important;
+  padding: 16px 28px !important;
   width: 100% !important;
-  height: auto !important;
-  min-height: 56px !important;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease !important;
-  box-shadow: none !important;
+  min-height: 54px !important;
+  letter-spacing: 0.02em !important;
+  transition: background-color 0.25s ease, transform 0.15s ease !important;
+  cursor: pointer !important;
 }
 
-.add-to-cart-button:hover,
-.product-form__submit:hover,
-button[name="add"]:hover {
-  background-color: var(--tumble-btn-hover) !important;
-  box-shadow: var(--tumble-shadow-hover) !important;
+button[name="add"]:hover,
+.product-form__submit:hover {
+  background-color: var(--c-dark2) !important;
   transform: translateY(-1px) !important;
 }
 
-.add-to-cart-button:active,
+button[name="add"]:active,
 .product-form__submit:active {
   transform: translateY(0) !important;
 }
 
-/* Disabled/sold out state */
-.add-to-cart-button[disabled],
+button[name="add"][disabled],
 .product-form__submit[disabled] {
-  background-color: var(--tumble-taupe) !important;
+  background-color: var(--c-taupe) !important;
   cursor: not-allowed !important;
   transform: none !important;
 }
 
-/* ============================================================
-   14. FREE SHIPPING / TRUST SIGNALS BAR
-   Tumble shows "Free Shipping & Free 30-Day Returns" below ATC
-   ============================================================ */
-.tumble-trust-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  padding: 14px 20px;
-  margin-top: 16px;
-  background-color: var(--tumble-cream);
-  border-radius: var(--tumble-radius-md);
-  border: 1px solid var(--tumble-border);
+/* =====================
+   9. QUANTITY SELECTOR
+   ===================== */
+quantity-selector,
+.quantity-input,
+.quantity-selector {
+  display: inline-flex !important;
+  border: 1.5px solid var(--c-border) !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  background: var(--c-cream) !important;
 }
 
-.tumble-trust-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12.5px;
-  font-weight: 500;
-  color: var(--tumble-text);
+quantity-selector button,
+.quantity-selector button,
+.quantity__button {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 14px !important;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  color: var(--c-text) !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease !important;
+  min-width: 42px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.tumble-trust-item svg {
-  width: 18px;
-  height: 18px;
-  color: var(--tumble-accent);
-  flex-shrink: 0;
+quantity-selector button:hover,
+.quantity-selector button:hover {
+  background: var(--c-cream2) !important;
 }
 
-@media screen and (max-width: 749px) {
-  .tumble-trust-bar {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-/* ============================================================
-   15. PRODUCT DESCRIPTION / ACCORDION TABS
-   Clean accordion like Tumble: "The Tumble Difference" tab
-   ============================================================ */
-.accordion-block,
-.accordion-container {
-  border-top: 1px solid var(--tumble-border) !important;
-}
-
-.accordion-block:last-child,
-.accordion-container:last-child {
-  border-bottom: 1px solid var(--tumble-border) !important;
-}
-
-.accordion__heading,
-.accordion-block__heading {
-  font-family: var(--tumble-font-body) !important;
-  font-size: 14px !important;
+quantity-selector input,
+.quantity-selector input,
+.quantity__input {
+  border: none !important;
+  border-left: 1px solid var(--c-border) !important;
+  border-right: 1px solid var(--c-border) !important;
+  width: 52px !important;
+  text-align: center !important;
   font-weight: 600 !important;
-  color: var(--tumble-text) !important;
-  padding: 16px 0 !important;
+  font-size: 15px !important;
+  background: transparent !important;
+  color: var(--c-text) !important;
+  height: 48px !important;
+}
+
+/* =====================
+   10. PRODUCT IMAGE
+   ===================== */
+.product-media-gallery,
+.media-gallery,
+.product-media {
+  background: var(--c-cream2) !important;
+  border-radius: var(--radius) !important;
+}
+
+.product-media img,
+.media-gallery img {
+  border-radius: var(--radius) !important;
+}
+
+/* Thumbnails */
+.media-thumbnail,
+.product-media-gallery__thumbnail,
+[class*="thumbnail"] {
+  border: 2px solid transparent !important;
+  border-radius: var(--radius-sm) !important;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: color 0.2s ease;
+  transition: border-color 0.2s !important;
+  overflow: hidden;
 }
 
-.accordion__heading:hover {
-  color: var(--tumble-accent) !important;
+[class*="thumbnail"]:hover,
+[class*="thumbnail"][aria-current="true"],
+[class*="thumbnail"][aria-pressed="true"] {
+  border-color: var(--c-text) !important;
 }
 
-.accordion__content,
-.accordion-block__content {
+/* =====================
+   11. PRODUCT DESCRIPTION / TEXT
+   ===================== */
+.product-details p,
+.product-details .rte,
+.product-details .text-block p,
+.product-details li {
+  font-family: var(--font-body) !important;
   font-size: 14px !important;
-  color: var(--tumble-text-light) !important;
-  line-height: 1.6 !important;
-  padding-bottom: 16px !important;
+  line-height: 1.7 !important;
+  color: var(--c-text-muted) !important;
 }
 
-/* ============================================================
-   16. FEATURE GRID (Below product area)
-   Tumble's 4-column icon grid: Machine Washable, Spillproof, etc.
-   ============================================================ */
-.tumble-features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 48px 0;
-  border-top: 1px solid var(--tumble-border);
-  border-bottom: 1px solid var(--tumble-border);
-  margin: 32px 0;
+/* =====================
+   12. DIVIDERS IN PRODUCT
+   ===================== */
+.divider,
+hr,
+[class*="divider"] {
+  border-color: var(--c-border) !important;
+  opacity: 1 !important;
 }
 
-@media screen and (max-width: 749px) {
-  .tumble-features-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 32px 0;
-  }
+/* =====================
+   13. STICKY ATC BAR
+   ===================== */
+sticky-add-to-cart,
+.sticky-add-to-cart,
+[data-sticky-atc] {
+  background: var(--c-cream) !important;
+  border-top: 1px solid var(--c-border) !important;
+  box-shadow: 0 -4px 24px rgba(44, 33, 24, 0.08) !important;
 }
 
-.tumble-feature-item {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+/* =====================
+   14. INPUTS & FORMS
+   ===================== */
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
+textarea,
+select {
+  font-family: var(--font-body) !important;
+  background: var(--c-cream) !important;
+  border: 1.5px solid var(--c-border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--c-text) !important;
+  transition: border-color 0.2s ease !important;
 }
 
-.tumble-feature-item__icon {
-  width: 56px;
-  height: 56px;
-  background-color: var(--tumble-cream);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--tumble-accent);
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--c-brown) !important;
 }
 
-.tumble-feature-item__icon svg {
-  width: 28px;
-  height: 28px;
+/* =====================
+   15. PRODUCT RECOMMENDATIONS
+   ===================== */
+.product-recommendations,
+[class*="recommendations"] {
+  background: var(--c-cream2) !important;
+  border-top: 1px solid var(--c-border) !important;
 }
 
-.tumble-feature-item__title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--tumble-text);
-  margin: 0;
+.product-recommendations h2,
+.product-recommendations h3 {
+  font-family: var(--font-heading) !important;
+  font-weight: 400 !important;
+  color: var(--c-text) !important;
 }
 
-.tumble-feature-item__desc {
-  font-size: 12px;
-  color: var(--tumble-text-light);
-  line-height: 1.5;
-  margin: 0;
+/* Product cards */
+.product-card,
+.card-wrapper,
+.card {
+  background: var(--c-cream) !important;
+  border-radius: var(--radius) !important;
+  transition: box-shadow 0.25s ease !important;
 }
 
-/* ============================================================
-   17. BREADCRUMB
-   Simple text breadcrumb above product title
-   ============================================================ */
-.breadcrumb,
-.breadcrumbs,
-nav[aria-label="breadcrumb"] {
-  margin-bottom: 16px !important;
+.product-card:hover,
+.card-wrapper:hover {
+  box-shadow: 0 4px 24px rgba(44, 33, 24, 0.1) !important;
 }
 
-.breadcrumb a,
-.breadcrumbs a,
-nav[aria-label="breadcrumb"] a {
-  font-size: 12px !important;
-  color: var(--tumble-text-light) !important;
-  text-decoration: none;
-  transition: color 0.2s ease;
+.card__heading,
+.card .title,
+[class*="card"] h2,
+[class*="card"] h3 {
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--c-text) !important;
 }
 
-.breadcrumb a:hover,
-.breadcrumbs a:hover {
-  color: var(--tumble-text) !important;
-  text-decoration: underline;
-}
-
-.breadcrumb .divider,
-.breadcrumbs .divider,
-nav[aria-label="breadcrumb"] .separator {
-  color: var(--tumble-text-light) !important;
-  font-size: 12px !important;
-  margin: 0 6px !important;
-}
-
-/* ============================================================
-   18. STICKY ADD TO CART (Bottom bar)
-   Tumble-style floating sticky ATC bar
-   ============================================================ */
-.sticky-add-to-cart__bar {
-  background: var(--tumble-warm-white) !important;
-  border-top: 1px solid var(--tumble-border) !important;
-  box-shadow: 0 -4px 20px rgba(44, 33, 24, 0.1) !important;
-  border-radius: 0 !important;
-  padding: 12px 24px !important;
-  width: 100% !important;
-  max-width: none !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  transform: none !important;
-}
-
-.sticky-add-to-cart__bar[data-stuck="true"] {
-  transform: none !important;
-}
-
-.sticky-add-to-cart__button.add-to-cart-button {
-  width: auto !important;
-  min-height: 48px !important;
-  padding: 12px 28px !important;
-}
-
-/* ============================================================
-   19. SECTION DIVIDERS
-   Subtle lines between page sections
-   ============================================================ */
-.shopify-section + .shopify-section {
-  border-top: 1px solid var(--tumble-border);
-}
-
-/* ============================================================
-   20. FOOTER
-   Dark footer with 3-4 column grid + newsletter signup
-   Inspired by Tumble's dark footer
-   ============================================================ */
+/* =====================
+   16. FOOTER
+   ===================== */
 footer,
-footer .shopify-section,
+.shopify-section-group-footer-group,
 .footer-section,
-footer .section {
-  background-color: var(--tumble-footer-bg) !important;
-  color: var(--tumble-footer-text) !important;
+.shopify-section:has(footer) {
+  background-color: var(--c-footer-bg) !important;
+  color: var(--c-footer-text) !important;
 }
 
-footer .section-background {
-  background-color: var(--tumble-footer-bg) !important;
+/* Footer sections background */
+footer .section,
+footer .section-background,
+footer [class*="section"] {
+  background-color: var(--c-footer-bg) !important;
 }
 
-/* Footer grid */
-.footer-content {
-  background-color: var(--tumble-footer-bg) !important;
-  padding-top: 56px !important;
-  padding-bottom: 40px !important;
-  gap: 48px !important;
-}
-
-/* Footer headings (column titles) */
+/* Footer headings */
+footer h1,
 footer h2,
 footer h3,
 footer h4,
-footer .h4,
-.footer-content h2,
-.footer-content h3,
-.footer-content h4,
-footer .text-block h2,
-footer .text-block h3,
-footer .text-block h4 {
-  font-family: var(--tumble-font-body) !important;
-  font-size: 13px !important;
+footer h5,
+footer .heading {
+  color: var(--c-cream2) !important;
+  font-family: var(--font-body) !important;
+  font-size: 12px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
-  color: var(--tumble-footer-heading) !important;
-  margin-bottom: 16px !important;
+  letter-spacing: 0.12em !important;
 }
 
 /* Footer links */
 footer a,
-footer .menu a,
-footer .footer-menu a,
-.footer-content a,
-footer .link-list a,
-footer nav a,
-footer ul li a {
-  color: var(--tumble-footer-text) !important;
+footer .link,
+footer li a {
+  color: var(--c-footer-text) !important;
+  font-family: var(--font-body) !important;
   font-size: 13.5px !important;
+  line-height: 1.6 !important;
   text-decoration: none !important;
-  font-family: var(--tumble-font-body) !important;
-  line-height: 1.5 !important;
   transition: color 0.2s ease !important;
 }
 
 footer a:hover,
-footer .menu a:hover,
-.footer-content a:hover {
-  color: var(--tumble-footer-heading) !important;
+footer li a:hover {
+  color: var(--c-cream2) !important;
 }
 
-/* Footer menu lists */
+/* Footer text */
+footer p,
+footer span:not([class*="icon"]) {
+  color: var(--c-footer-text) !important;
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
+}
+
+/* Footer lists */
 footer ul,
-footer ol,
-.footer-content ul {
+footer ol {
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
-/* Footer paragraphs / body text */
-footer p,
-footer .paragraph,
-footer .text-block p,
-.footer-content p {
-  color: var(--tumble-footer-text) !important;
-  font-size: 13.5px !important;
-  line-height: 1.6 !important;
-  font-family: var(--tumble-font-body) !important;
+footer li {
+  margin-bottom: 10px !important;
 }
 
-/* ============================================================
-   21. NEWSLETTER SIGNUP (Footer)
-   Clean email input + button like Tumble
-   ============================================================ */
-footer .email-signup,
-footer form.contact-form,
-footer .footer-newsletter {
-  margin-top: 8px;
-}
-
+/* Footer newsletter input */
 footer input[type="email"],
-footer .email-signup input,
-footer .contact-form input[type="email"] {
-  background-color: rgba(255,255,255,0.08) !important;
+footer input[type="text"] {
+  background: rgba(255,255,255,0.1) !important;
   border: 1.5px solid rgba(255,255,255,0.2) !important;
-  border-radius: var(--tumble-radius-md) !important;
-  color: var(--tumble-footer-heading) !important;
-  font-size: 14px !important;
-  padding: 12px 16px !important;
-  width: 100% !important;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  border-radius: var(--radius) !important;
+  color: var(--c-cream2) !important;
+  font-family: var(--font-body) !important;
+  padding: 12px 14px !important;
 }
 
-footer input[type="email"]::placeholder {
-  color: rgba(212, 200, 188, 0.6) !important;
+footer input[type="email"]::placeholder,
+footer input[type="text"]::placeholder {
+  color: rgba(212,200,188,0.5) !important;
 }
 
-footer input[type="email"]:focus {
-  border-color: rgba(255,255,255,0.5) !important;
-  background-color: rgba(255,255,255,0.12) !important;
+footer input[type="email"]:focus,
+footer input[type="text"]:focus {
+  border-color: rgba(255,255,255,0.45) !important;
   outline: none !important;
+  background: rgba(255,255,255,0.14) !important;
 }
 
 footer button[type="submit"],
-footer .email-signup button,
-footer .contact-form button[type="submit"],
-footer .email-signup__submit {
-  background-color: var(--tumble-taupe) !important;
-  color: var(--tumble-footer-bg) !important;
+footer input[type="submit"],
+footer .newsletter-form__button {
+  background: var(--c-taupe) !important;
+  color: var(--c-dark) !important;
   border: none !important;
-  border-radius: var(--tumble-radius-md) !important;
+  border-radius: var(--radius) !important;
+  font-family: var(--font-body) !important;
   font-size: 13px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.06em !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   padding: 12px 20px !important;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-  white-space: nowrap;
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
 }
 
-footer button[type="submit"]:hover,
-footer .email-signup__submit:hover {
-  background-color: var(--tumble-light-brown) !important;
-  transform: translateY(-1px);
+footer button[type="submit"]:hover {
+  background: var(--c-brown) !important;
+  color: var(--c-cream2) !important;
 }
 
-/* Email + button row layout */
-footer .email-signup__form,
-footer .footer-newsletter__form {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
+/* Footer SVG icons */
+footer svg {
+  fill: var(--c-footer-text) !important;
+  color: var(--c-footer-text) !important;
 }
 
-/* ============================================================
-   22. SOCIAL LINKS (Footer)
-   Small circular social icons
-   ============================================================ */
-footer .social-links,
-.footer-content .social-links {
-  display: flex;
-  gap: 10px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-}
-
+/* Footer social links */
 footer .social-links a,
-.footer-content .social-links a {
+footer [class*="social"] a {
   width: 36px !important;
   height: 36px !important;
   border-radius: 50% !important;
-  background-color: rgba(255,255,255,0.1) !important;
-  display: flex !important;
+  background: rgba(255,255,255,0.1) !important;
+  display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: background-color 0.2s ease !important;
-  color: var(--tumble-footer-text) !important;
-  text-decoration: none !important;
+  transition: background 0.2s ease !important;
 }
 
-footer .social-links a:hover {
-  background-color: rgba(255,255,255,0.2) !important;
-  color: var(--tumble-footer-heading) !important;
-}
-
-footer .social-links svg,
-.footer-content .social-links svg {
-  width: 16px !important;
-  height: 16px !important;
-}
-
-/* ============================================================
-   23. FOOTER BOTTOM BAR
-   Copyright + policy links like Tumble
-   ============================================================ */
-.footer-utilities,
-footer-utilities,
-.footer__legal {
-  background-color: var(--tumble-footer-bg) !important;
-  border-top: 1px solid rgba(255,255,255,0.08) !important;
-  padding: 16px 0 !important;
-}
-
-.footer-utilities p,
-.footer-utilities a,
-footer-utilities p,
-footer-utilities a,
-.footer__legal p,
-.footer__legal a {
-  color: rgba(212, 200, 188, 0.65) !important;
-  font-size: 12px !important;
-  text-decoration: none !important;
-  transition: color 0.2s ease;
-}
-
-.footer-utilities a:hover,
-footer-utilities a:hover {
-  color: var(--tumble-footer-text) !important;
-}
-
-/* ============================================================
-   24. PAYMENT ICONS (Footer)
-   ============================================================ */
-footer .payment-icons,
-.footer-content .payment-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 12px;
-  opacity: 0.7;
-}
-
-footer .payment-icons svg,
-.footer-content .payment-icons svg {
-  height: 24px;
-  width: auto;
-}
-
-/* ============================================================
-   25. GENERAL BUTTONS (Secondary)
-   ============================================================ */
-.button--secondary,
-button.button-secondary {
-  background: transparent !important;
-  color: var(--tumble-text) !important;
-  border: 1.5px solid var(--tumble-text) !important;
-  border-radius: var(--tumble-radius-md) !important;
-  font-family: var(--tumble-font-body) !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  padding: 12px 24px !important;
-  transition: background-color 0.2s ease, color 0.2s ease !important;
-}
-
-.button--secondary:hover,
-button.button-secondary:hover {
-  background-color:var(--tumble-text) !important;
-  color: var(--tumble-warm-white) !important;
-}
-
-/* ============================================================
-   26. PRODUCT CARD (Collection/Related)
-   Minimal cards with bottom border on hover
-   ============================================================ */
-.product-card {
-  background: transparent;
-  border-radius: var(--tumble-radius-md) !important;
-  overflow: hidden;
-  transition: box-shadow 0.25s ease !important;
-}
-
-.product-card:hover {
-  box-shadow: var(--tumble-shadow) !important;
-}
-
-.product-card__title,
-.product-card .product-title {
-  font-family: var(--tumble-font-body) !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  color: var(--tumble-text) !important;
-  margin-top: 12px !important;
-}
-
-.product-card .price {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: var(--tumble-text) !important;
-}
-
-/* ============================================================
-   27. SECTION HEADINGS (Generic)
-   Serif headings for section titles
-   ============================================================ */
-.section-heading,
-.section-title,
-h2.section-title {
-  font-family: var(--tumble-font-heading) !important;
-  font-size: 32px !important;
-  font-weight: 400 !important;
-  color: var(--tumble-text) !important;
-  margin-bottom: 32px !important;
-}
-
-/* ============================================================
-   28. REVIEWS SECTION
-   Star ratings row + review cards
-   ============================================================ */
-.product-reviews,
-.review-section {
-  margin-top: 48px !important;
-  padding-top: 48px !important;
-  border-top: 1px solid var(--tumble-border) !important;
-}
-
-.review-card {
-  background: var(--tumble-cream) !important;
-  border: 1px solid var(--tumble-border) !important;
-  border-radius: var(--tumble-radius-md) !important;
-  padding: 24px !important;
-}
-
-/* ============================================================
-   29. SCROLLBAR STYLING
-   Thin, warm-colored scrollbar
-   ============================================================ */
-:root {
-  scrollbar-width: thin;
-  scrollbar-color: var(--tumble-taupe) var(--tumble-warm-white);
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--tumble-warm-white);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--tumble-taupe);
-  border-radius: 3px;
-}
-
-/* ============================================================
-   30. SMOOTH TRANSITIONS & ANIMATIONS
-   ============================================================ */
-* {
-  transition-timing-function: ease-out;
-}
-
-a,
-button {
-  transition-duration: 0.2s;
-}
-
-/* Image lazy-load fade in */
-img {
-  transition: opacity 0.3s ease;
-}
-
-img[loading="lazy"] {
-  opacity: 0;
-}
-
-img[loading="lazy"].loaded,
-img:not([loading="lazy"]) {
-  opacity: 1;
-}
-
-/* ============================================================
-   31. RESPONSIVE OVERRIDES - MOBILE
-   ============================================================ */
-@media screen and (max-width: 749px) {
-  .product-information {
-    padding-top: 16px !important;
-    padding-bottom: 32px !important;
-  }
-
-  .footer-content {
-    padding-top: 40px !important;
-    gap: 32px !important;
-  }
-
-  .tumble-features-bar {
-    flex-wrap: nowrap;
-  }
-}
-
-/* ============================================================
-   32. MEGAMENU DROPDOWN
-   Styled like Tumble with clean white background
-   ============================================================ */
-.mega-menu,
-.header-dropdown,
-.submenu-panel {
-  background-color: var(--tumble-warm-white) !important;
-  border-top: 2px solid var(--tumble-accent) !important;
-  box-shadow: 0 8px 32px rgba(44, 33, 24, 0.12) !important;
-  border-radius: 0 0 var(--tumble-radius-md) var(--tumble-radius-md) !important;
-}
-
-.mega-menu a,
-.submenu-panel a {
-  font-size: 14px !important;
-  color: var(--tumble-text) !important;
-  font-weight: 400 !important;
-  padding: 8px 0 !important;
-  transition: color 0.15s ease !important;
-}
-
-.mega-menu a:hover,
-.submenu-panel a:hover {
-  color: var(--tumble-accent) !important;
-}
-
-.mega-menu .mega-menu__heading,
-.submenu-panel .heading {
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
-  color: var(--tumble-text-light) !important;
-  margin-bottom: 12px !important;
-}
-
-/* ============================================================
-   33. HORIZON THEME SPECIFIC OVERRIDES
-   Targeting specific Horizon theme classes and components
-   ============================================================ */
-
-/* Horizon color scheme override - make section-1 match our warm palette */
-.color-scheme-1,
-.color-\[scheme-1\] {
-  --color-background: var(--tumble-warm-white) !important;
-  --color-foreground: var(--tumble-text) !important;
-  --color-border: var(--tumble-border) !important;
-}
-
-/* Product page group blocks */
-.group-block {
-  background: transparent !important;
-}
-
-/* Product price in Horizon */
-.price-block .price,
-.price-block .price-item {
-  font-size: 20px !important;
-  font-weight: 600 !important;
-  color: var(--tumble-text) !important;
-  font-family: var(--tumble-font-body) !important;
-}
-
-/* Variant buttons in Horizon */
-.variant-button,
-.variant-picker__option-button {
-  border: 1.5px solid var(--tumble-border) !important;
-  border-radius: var(--tumble-radius-md) !important;
-  background: var(--tumble-warm-white) !important;
-  color: var(--tumble-text) !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  padding: 10px 18px !important;
-  cursor: pointer;
-  transition: all 0.2s ease !important;
-}
-
-.variant-button:hover,
-.variant-picker__option-button:hover {
-  border-color: var(--tumble-text) !important;
-  background: var(--tumble-cream) !important;
-}
-
-.variant-button[data-selected="true"],
-.variant-button.selected,
-.variant-picker__option-button[aria-checked="true"] {
-  background: var(--tumble-text) !important;
-  color: var(--tumble-cream) !important;
-  border-color: var(--tumble-text) !important;
-}
-
-/* Quantity controls */
-quantity-selector,
-.quantity-selector-component {
-  border: 1.5px solid var(--tumble-border) !important;
-  border-radius: var(--tumble-radius-md) !important;
-  overflow: hidden;
-  display: inline-flex;
-}
-
-quantity-selector button,
-.quantity-selector-component button {
-  background: transparent !important;
-  border: none !important;
-  padding: 10px 16px !important;
-  font-size: 18px !important;
-  color: var(--tumble-text) !important;
-  cursor: pointer;
-  transition: background-color 0.15s ease !important;
-}
-
-quantity-selector button:hover,
-.quantity-selector-component button:hover {
-  background: var(--tumble-cream) !important;
-}
-
-quantity-selector input,
-.quantity-selector-component input {
-  border: none !important;
-  border-left: 1px solid var(--tumble-border) !important;
-  border-right: 1px solid var(--tumble-border) !important;
-  text-align: center;
-  width: 50px !important;
-  font-weight: 600 !important;
-  background: transparent !important;
-  color: var(--tumble-text) !important;
-}
-
-/* Horizon buy buttons */
-.buy-buttons-block {
-  gap: 10px !important;
-}
-
-/* Shopify payment buttons (Apple Pay, etc.) */
-.shopify-payment-button__button {
-  border-radius: var(--tumble-radius-md) !important;
-  font-family: var(--tumble-font-body) !important;
-}
-
-/* Cart drawer */
-.cart-drawer,
-.drawer[data-drawer="cart"] {
-  background: var(--tumble-warm-white) !important;
-}
-
-.cart-drawer__title,
-.cart-header h2 {
-  font-family: var(--tumble-font-heading) !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  color: var(--tumble-text) !important;
-}
-
-/* Product recommendation heading override */
-.product-recommendations h3,
-.product-recommendations h4 {
-  font-family: var(--tumble-font-heading) !important;
-  font-size: 24px !important;
-  font-weight: 400 !important;
-  color: var(--tumble-text) !important;
-}
-
-/* ============================================================
-   34. FOOTER COLOR OVERRIDE FOR HORIZON SCHEME-2
-   The footer uses scheme-2 which needs dark background
-   ============================================================ */
-
-/* Override the scheme-2 color for footer specifically */
-footer .color-scheme-2,
-footer .color-\[scheme-2\] {
-  --color-background: var(--tumble-footer-bg) !important;
-  --color-foreground: var(--tumble-footer-text) !important;
+footer .social-links a:hover,
+footer [class*="social"] a:hover {
+  background: rgba(255,255,255,0.2) !important;
 }
 
 /* Footer utilities bar */
 .footer-utilities,
-.utilities {
-  background-color: var(--tumble-footer-bg) !important;
-  border-top-color: rgba(255,255,255,0.08) !important;
+.utilities,
+[class*="footer-utilities"] {
+  background-color: var(--c-footer-bg) !important;
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
 }
 
 .footer-utilities *,
-.utilities * {
-  color: rgba(212, 200, 188, 0.65) !important;
+.utilities *,
+[class*="footer-utilities"] * {
+  color: rgba(212,200,188,0.55) !important;
+  font-size: 12px !important;
+  font-family: var(--font-body) !important;
 }
 
 .footer-utilities a:hover,
 .utilities a:hover {
-  color: var(--tumble-footer-text) !important;
+  color: var(--c-footer-text) !important;
 }
 
-/* ============================================================
-   35. ANNOUNCEMENT BAR COLOR OVERRIDE
-   For Horizon scheme-4 (used by announcement bar)
-   ============================================================ */
-.color-scheme-4 {
-  background-color: var(--tumble-announcement-bg) !important;
+/* =====================
+   17. CART DRAWER
+   ===================== */
+cart-drawer,
+.cart-drawer,
+.drawer[id*="cart"] {
+  background: var(--c-cream) !important;
 }
 
-.announcement-bar.color-scheme-4,
-.announcement-bar.color-\[scheme-4\] {
-  background-color: var(--tumble-announcement-bg) !important;
+.cart-drawer__title,
+cart-drawer h2 {
+  font-family: var(--font-heading) !important;
+  font-weight: 400 !important;
+  color: var(--c-text) !important;
 }
 
-/* ============================================================
-   36. HEADER UNDERLAY OVERRIDES
-   ============================================================ */
-.header__underlay-closed,
-.header__underlay-open {
-  --color-scheme-top-row: var(--tumble-warm-white) !important;
-  --color-scheme-bottom-row: var(--tumble-warm-white) !important;
+/* =====================
+   18. SEARCH MODAL
+   ===================== */
+search-modal,
+.search-modal,
+dialog[id*="search"] {
+  background: var(--c-cream) !important;
 }
 
-/* ============================================================
-   37. PRODUCT IMAGE GALLERY SPECIFIC
-   Matches Tumble's thumbnail-left layout style
-   ============================================================ */
-.media-gallery,
-.product-media-gallery {
-  background: transparent !important;
+/* =====================
+   19. BUTTONS (General)
+   ===================== */
+.button,
+.btn {
+  font-family: var(--font-body) !important;
+  border-radius: var(--radius) !important;
 }
 
-/* Main product image container */
-.product-media-gallery__main {
-  border-radius: var(--tumble-radius-md) !important;
-  overflow: hidden;
-  background: var(--tumble-cream) !important;
-}
-
-/* Zoom icon */
-.zoom-button,
-.media-gallery__zoom-button {
-  background: rgba(253, 250, 247, 0.9) !important;
-  color: var(--tumble-text) !important;
-  border-radius: 50% !important;
+.button--primary {
+  background: var(--c-dark) !important;
+  color: var(--c-cream2) !important;
   border: none !important;
 }
 
-/* ============================================================
-   38. SECTION BACKGROUND OVERRIDES
-   Ensure sections have correct backgrounds
-   ============================================================ */
-.section-background.color-\[scheme-1\],
-.section-background.color-scheme-1 {
-  background-color: var(--tumble-warm-white) !important;
+.button--primary:hover {
+  background: var(--c-dark2) !important;
 }
 
-/* Product information section background */
-.product-information > .section-background {
-  background-color: var(--tumble-warm-white) !important;
+.button--secondary {
+  background: transparent !important;
+  color: var(--c-text) !important;
+  border: 1.5px solid var(--c-text) !important;
 }
 
-/* ============================================================
-   39. DIVIDERS IN PRODUCT BLOCK
-   Clean line dividers between product sections
-   ============================================================ */
-.divider-block,
-._divider-block {
-  border-color: var(--tumble-border) !important;
-  opacity: 1 !important;
+.button--secondary:hover {
+  background: var(--c-text) !important;
+  color: var(--c-cream2) !important;
 }
 
-/* ============================================================
-   40. TYPOGRAPHY ENHANCEMENTS
-   Heading overrides for product page
-   ============================================================ */
-.product-details .h3,
-.product-details h3 {
-  font-family: var(--tumble-font-heading) !important;
-  font-size: 26px !important;
-  font-weight: 400 !important;
-  color: var(--tumble-text) !important;
-}
-
-/* Description text */
-.product-details .rte,
-.product-details .text-block,
-.product-details p {
-  font-size: 14px !important;
-  line-height: 1.7 !important;
-  color: var(--tumble-text-light) !important;
-  font-family: var(--tumble-font-body) !important;
-}
-
-/* ============================================================
-   41. COLLECTION PAGE OVERRIDES
-   ============================================================ */
-.main-collection {
-  background-color: var(--tumble-warm-white) !important;
-}
-
-/* Filter sidebar */
-.filter-sidebar {
-  background: var(--tumble-cream) !important;
-  border-right: 1px solid var(--tumble-border) !important;
-}
-
-/* Filter labels */
-.filter-group__label {
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  color: var(--tumble-text) !important;
-}
-
-/* ============================================================
-   42. SEARCH MODAL
-   ============================================================ */
-.search-modal,
-dialog.search-dialog {
-  background: var(--tumble-warm-white) !important;
-}
-
-.search-input,
-.search-form input[type="search"] {
-  background: var(--tumble-cream) !important;
-  border: 1.5px solid var(--tumble-border) !important;
-  border-radius: var(--tumble-radius-md) !important;
-  color: var(--tumble-text) !important;
-  font-family: var(--tumble-font-body) !important;
-}
-
-/* ============================================================
-   43. BADGES
-   Clean badges like Tumble's "NEW" labels
-   ============================================================ */
+/* =====================
+   20. BADGES
+   ===================== */
 .badge,
-.product-badge {
-  font-family: var(--tumble-font-body) !important;
+[class*="badge"] {
+  font-family: var(--font-body) !important;
   font-size: 10px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
-  border-radius: 4px !important;
-  padding: 4px 8px !important;
+  letter-spacing: 0.08em !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 3px 8px !important;
+  background: var(--c-dark) !important;
+  color: var(--c-cream2) !important;
 }
 
-.badge--sale {
-  background: var(--tumble-accent) !important;
-  color: var(--tumble-warm-white) !important;
+/* =====================
+   21. SECTION BACKGROUNDS
+   ===================== */
+.shopify-section,
+main,
+.content-for-layout {
+  background-color: var(--c-cream) !important;
 }
 
-.badge--new,
-.badge--sold-out {
-  background: var(--tumble-text) !important;
-  color: var(--tumble-warm-white) !important;
+/* Make sure color-scheme-1 uses our cream */
+[class*="color-scheme-1"],
+[class*="color-"][class*="scheme-1"],
+.color-scheme-1 {
+  --color-background: var(--c-cream) !important;
+  --color-foreground: var(--c-text) !important;
+  background-color: var(--c-cream) !important;
 }
 
-/* ============================================================
-   44. MARQUEE / ANNOUNCEMENT SCROLL
-   If there is a marquee section
-   ============================================================ */
-.marquee {
-  background-color: var(--tumble-dark-brown) !important;
-  color: var(--tumble-announcement-text) !important;
-  padding: 12px 0 !important;
+/* =====================
+   22. PAGE WIDTH
+   ===================== */
+.page-width {
+  max-width: 1280px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-.marquee__text,
-.marquee-item {
-  color: var(--tumble-announcement-text) !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  font-family: var(--tumble-font-body) !important;
-}
+/* =====================
+   23. RESPONSIVE MOBILE
+   ===================== */
+@media (max-width: 749px) {
+  .product-details h1,
+  .product-details h2 {
+    font-size: 26px !important;
+  }
 
+  footer {
+    text-align: center;
+  }
+
+  footer ul {
+    align-items: center;
+  }
+}
