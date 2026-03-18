@@ -1,16 +1,88 @@
 /* ============================================================
-   TUMBLE LIVING - EXACT DESIGN MATCH
-   Reference: tumbleliving.com/products/lisa-midnight
+   TUMBLE LIVING DESIGN SYSTEM
+   Loaded AFTER color-schemes.liquid — overrides all Horizon vars
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 
 /* ============================================================
-   DESIGN TOKENS
-   Tumble uses: pure white bg, dark charcoal text, sage/tan accents
+   STEP 1: OVERRIDE ALL HORIZON CSS VARIABLES AT :root
+   This is the KEY fix — Horizon uses CSS vars everywhere in base.css
+   By overriding the vars, every component that uses them auto-updates
    ============================================================ */
-:root {
-  /* Colors */
+:root,
+.color-scheme-1,
+.color-scheme-2,
+.color-scheme-3,
+[class*="color-scheme"] {
+
+  /* === FONTS === */
+  --font-body--family:       'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  --font-subheading--family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  --font-heading--family:    'DM Serif Display', Georgia, serif !important;
+  --font-accent--family:     'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+
+  --font-h1--family: 'DM Serif Display', Georgia, serif !important;
+  --font-h2--family: 'DM Serif Display', Georgia, serif !important;
+  --font-h3--family: 'DM Serif Display', Georgia, serif !important;
+  --font-h4--family: 'DM Sans', sans-serif !important;
+  --font-h5--family: 'DM Sans', sans-serif !important;
+  --font-h6--family: 'DM Sans', sans-serif !important;
+  --font-paragraph--family: 'DM Sans', sans-serif !important;
+
+  /* === COLORS - Tumble palette === */
+  --color-background:         255 255 255 !important;     /* #FFFFFF */
+  --color-foreground:         74 74 74 !important;         /* #4A4A4A */
+  --color-foreground-heading: 26 26 26 !important;         /* #1A1A1A */
+  --color-primary:            26 26 26 !important;         /* #1A1A1A */
+  --color-primary-hover:      51 51 51 !important;         /* #333333 */
+  --color-border:             229 229 229 !important;      /* #E5E5E5 */
+  --color-shadow:             0 0 0 !important;
+
+  /* === BUTTONS - dark like Tumble === */
+  --color-primary-button-background: 26 26 26 !important;   /* #1A1A1A */
+  --color-primary-button-text:       255 255 255 !important; /* #FFFFFF */
+  --color-primary-button-border:     26 26 26 !important;
+  --color-primary-button-hover-background: 51 51 51 !important;
+  --color-primary-button-hover-text:       255 255 255 !important;
+  --color-primary-button-hover-border:     51 51 51 !important;
+
+  --color-secondary-button-background:       0 0 0 !important;
+  --color-secondary-button-text:             26 26 26 !important;
+  --color-secondary-button-border:           26 26 26 !important;
+  --color-secondary-button-hover-background: 26 26 26 !important;
+  --color-secondary-button-hover-text:       255 255 255 !important;
+  --color-secondary-button-hover-border:     26 26 26 !important;
+
+  /* === INPUTS === */
+  --color-input-background:       255 255 255 !important;
+  --color-input-text:             26 26 26 !important;
+  --color-input-border:           229 229 229 !important;
+  --color-input-hover-background: 248 247 245 !important;
+
+  /* === VARIANTS === */
+  --color-variant-background:              255 255 255 !important;
+  --color-variant-text:                    26 26 26 !important;
+  --color-variant-border:                  229 229 229 !important;
+  --color-variant-hover-background:        248 247 245 !important;
+  --color-variant-hover-text:              26 26 26 !important;
+  --color-variant-hover-border:            26 26 26 !important;
+  --color-selected-variant-background:     26 26 26 !important;
+  --color-selected-variant-text:           255 255 255 !important;
+  --color-selected-variant-border:         26 26 26 !important;
+  --color-selected-variant-hover-background: 51 51 51 !important;
+  --color-selected-variant-hover-text:       255 255 255 !important;
+  --color-selected-variant-hover-border:     51 51 51 !important;
+
+  /* === HEADING COLORS === */
+  --font-h1--color: #1A1A1A !important;
+  --font-h2--color: #1A1A1A !important;
+  --font-h3--color: #1A1A1A !important;
+  --font-h4--color: #1A1A1A !important;
+  --font-h5--color: #1A1A1A !important;
+  --font-h6--color: #1A1A1A !important;
+
+  /* === CUSTOM TUMBLE VARS === */
   --t-white:       #FFFFFF;
   --t-bg:          #FFFFFF;
   --t-bg-light:    #F8F7F5;
@@ -20,799 +92,300 @@
   --t-text-light:  #767676;
   --t-border:      #E5E5E5;
   --t-border-dark: #C8C8C8;
-  --t-accent:      #8C7B6B;       /* Tumble's warm taupe accent */
-  --t-badge-green: #3D7A5B;       /* feature badge green */
-  --t-btn-bg:      #1A1A1A;       /* Add to cart: near-black */
+  --t-accent:      #8C7B6B;
+  --t-badge-green: #3D7A5B;
+  --t-btn-bg:      #1A1A1A;
   --t-btn-text:    #FFFFFF;
-  --t-bar-bg:      #1A1A1A;       /* Announcement: dark */
+  --t-bar-bg:      #1A1A1A;
   --t-bar-text:    #FFFFFF;
-  --t-footer-bg:   #1A1A1A;       /* Footer dark */
+  --t-footer-bg:   #1A1A1A;
   --t-footer-text: #BDBDBD;
   --t-footer-head: #FFFFFF;
-
-  /* Typography */
-  --t-font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --t-font-heading: 'DM Serif Display', Georgia, 'Times New Roman', serif;
-
-  /* Spacing & radius */
+  --t-font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --t-font-heading: 'DM Serif Display', Georgia, serif;
   --t-radius:    4px;
   --t-radius-md: 8px;
-  --t-radius-lg: 16px;
-  --t-radius-xl: 100px; /* pill */
+  --t-radius-xl: 100px;
+}
+
+/* Footer schemes — dark */
+.color-scheme-4,
+.color-scheme-5 {
+  --color-background:         26 26 26 !important;
+  --color-foreground:         189 189 189 !important;
+  --color-foreground-heading: 255 255 255 !important;
+  --color-border:             51 51 51 !important;
+  --color-primary-button-background: 255 255 255 !important;
+  --color-primary-button-text:       26 26 26 !important;
 }
 
 /* ============================================================
-   1. GLOBAL BASE
+   STEP 2: DIRECT ELEMENT OVERRIDES (fallback / enforce)
    ============================================================ */
-html {
-  scroll-behavior: smooth;
-}
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
+/* Body */
 body {
-  font-family: var(--t-font-body) !important;
-  background-color: var(--t-bg) !important;
-  color: var(--t-text) !important;
+  background-color: #FFFFFF !important;
+  color: #1A1A1A !important;
+  font-family: 'DM Sans', -apple-system, sans-serif !important;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
 }
+
+/* All headings */
+h1, h2, h3 {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  color: #1A1A1A !important;
+  font-weight: 400 !important;
+}
+h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif !important;
+  color: #1A1A1A !important;
+}
+
+/* Links */
+a { color: #1A1A1A; text-decoration: none; }
 
 /* ============================================================
-   2. ANNOUNCEMENT BAR
-   Tumble: thin dark bar, white small text, centered
+   3. ANNOUNCEMENT BAR — dark strip
    ============================================================ */
 .announcement-bar,
 .header-announcements,
-.announcement,
-[class*="announcement-bar"],
-[class*="header-announcement"] {
-  background-color: var(--t-bar-bg) !important;
-  min-height: 36px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+[class*="announcement"] {
+  background-color: #1A1A1A !important;
 }
-
 .announcement-bar *,
-.header-announcements * {
-  color: var(--t-bar-text) !important;
-  font-family: var(--t-font-body) !important;
+.header-announcements *,
+[class*="announcement"] * {
+  color: #FFFFFF !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 12.5px !important;
   font-weight: 500 !important;
-  letter-spacing: 0.03em !important;
-  text-align: center !important;
 }
 
 /* ============================================================
-   3. HEADER
-   Tumble: pure white bg, logo centered/left, nav links,
-   icons top-right, thin bottom border
+   4. HEADER — pure white, border bottom
    ============================================================ */
 .shopify-section-group-header-group,
-.header-section,
 header-component,
-#header-component {
-  background: var(--t-white) !important;
-  border-bottom: 1px solid var(--t-border) !important;
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 100 !important;
+#header-component,
+.header-section {
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #E5E5E5 !important;
 }
 
 .header,
 .header__row,
 .header__row--top,
-.header__row--bottom,
-.header-wrapper {
-  background-color: var(--t-white) !important;
-  background: var(--t-white) !important;
+.header__row--bottom {
+  background-color: #FFFFFF !important;
 }
 
-/* Header section background override */
-.header-section .section-background {
-  background-color: var(--t-white) !important;
-}
-
-/* Logo text */
+/* Logo */
 .header__heading,
-.header__heading-logo,
-.header-logo {
-  font-family: var(--t-font-heading) !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  color: var(--t-text) !important;
-  letter-spacing: -0.01em !important;
-}
-
-.header__heading img,
-.header-logo img {
-  max-height: 36px !important;
-  width: auto !important;
+.header__heading-logo {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  color: #1A1A1A !important;
 }
 
 /* Nav links */
 .menu-list__link,
-.header__menu-item > a,
 .header-menu a,
-.header-menu button,
-overflow-list a {
-  font-family: var(--t-font-body) !important;
+.header-menu button {
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 13.5px !important;
   font-weight: 500 !important;
-  color: var(--t-text) !important;
-  letter-spacing: 0.01em !important;
-  text-transform: none !important;
-  text-decoration: none !important;
-  padding: 4px 0 !important;
-  border-bottom: 1.5px solid transparent !important;
-  transition: border-color 0.2s ease, color 0.2s ease !important;
+  color: #1A1A1A !important;
 }
+.menu-list__link:hover { color: #555555 !important; }
 
-.menu-list__link:hover,
-.header-menu a:hover {
-  color: var(--t-text) !important;
-  border-bottom-color: var(--t-text) !important;
-}
-
-/* Header icons - search, account, cart, wishlist */
-.header-actions__action,
-.search-action,
-.account-button,
-.header__icon {
-  color: var(--t-text) !important;
-  opacity: 1 !important;
-}
-
+/* Header icons */
 .header-actions__action svg,
-.search-action svg,
-.account-button svg,
-.header__icon svg {
-  color: var(--t-text) !important;
-  fill: none !important;
-  stroke: var(--t-text) !important;
-  width: 20px !important;
-  height: 20px !important;
-}
-
-/* Cart count badge */
-.header-actions__cart-count,
-.cart-count-bubble,
-[class*="cart-count"] {
-  background: var(--t-text) !important;
-  color: var(--t-white) !important;
-  font-family: var(--t-font-body) !important;
-  font-size: 10px !important;
-  font-weight: 700 !important;
-}
-
-/* Mega menu dropdown */
-.mega-menu,
-.header-menu__dropdown,
-.dropdown-panel,
-.disclosure__panel {
-  background: var(--t-white) !important;
-  border: 1px solid var(--t-border) !important;
-  border-top: 2px solid var(--t-text) !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08) !important;
-}
-
-.mega-menu a,
-.dropdown-panel a {
-  font-size: 13.5px !important;
-  color: var(--t-text-mid) !important;
-  font-weight: 400 !important;
-}
-
-.mega-menu a:hover,
-.dropdown-panel a:hover {
-  color: var(--t-text) !important;
+.header-actions__cart-icon svg,
+.search-action svg {
+  color: #1A1A1A !important;
+  stroke: #1A1A1A !important;
 }
 
 /* ============================================================
-   4. PAGE BACKGROUND
+   5. PAGE BACKGROUND
    ============================================================ */
 main,
 .content-for-layout,
-.shopify-section:not(.shopify-section-group-footer-group):not(.shopify-section-group-header-group) {
-  background-color: var(--t-bg) !important;
+.shopify-section {
+  background-color: #FFFFFF !important;
 }
 
 /* ============================================================
-   5. PRODUCT PAGE - IMAGE GALLERY (Left col)
-   Tumble: vertical thumbnail strip on LEFT side, large main image
+   6. PRODUCT PAGE
    ============================================================ */
-.product-media-gallery,
-.media-gallery,
-[data-testid="product-information-media"] {
-  background: var(--t-bg-light) !important;
-  border-radius: var(--t-radius-md) !important;
-  overflow: hidden;
-}
 
-.product-media,
-.product-media-gallery__item {
-  background: var(--t-bg-light) !important;
-}
-
-.product-media img,
-.media-gallery img {
-  border-radius: var(--t-radius) !important;
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Thumbnail buttons */
-.product-media-gallery__thumbnail,
-.media-thumbnail,
-[class*="thumbnail-button"] {
-  border: 2px solid transparent !important;
-  border-radius: var(--t-radius) !important;
-  overflow: hidden;
-  opacity: 0.7;
-  transition: opacity 0.2s, border-color 0.2s !important;
-  cursor: pointer;
-}
-
-.product-media-gallery__thumbnail:hover,
-.product-media-gallery__thumbnail[aria-pressed="true"],
-.product-media-gallery__thumbnail[aria-current="true"] {
-  border-color: var(--t-text) !important;
-  opacity: 1 !important;
-}
-
-/* ============================================================
-   6. PRODUCT DETAILS (Right col)
-   ============================================================ */
-.product-details,
-[data-testid="product-details"] {
-  background: var(--t-bg) !important;
-  padding-top: 8px !important;
-}
-
-/* Breadcrumb */
-.breadcrumb,
-nav[aria-label="breadcrumb"],
-.breadcrumbs {
-  font-size: 12px !important;
-  margin-bottom: 12px !important;
-}
-
-.breadcrumb a,
-.breadcrumbs a {
-  color: var(--t-text-light) !important;
-  font-size: 12px !important;
-  text-decoration: none !important;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline !important;
-}
-
-/* =====================
-   PRODUCT TITLE
-   Tumble: large serif, 30-36px, dark, font-weight 400
-   ===================== */
+/* Product title */
 .product-details h1,
-.product-details .h1,
-.product-details [class*="product-title"],
-.product-details [class*="title"] h1,
-.product-details [class*="title"] h2 {
-  font-family: var(--t-font-heading) !important;
-  font-size: clamp(26px, 2.5vw, 36px) !important;
-  font-weight: 400 !important;
-  line-height: 1.15 !important;
-  color: var(--t-text) !important;
-  letter-spacing: -0.02em !important;
-  margin-bottom: 10px !important;
-}
-
-/* Horizon theme wraps title in paragraph blocks */
-.product-details .paragraph,
-.product-details .text-block {
-  margin-bottom: 0 !important;
-}
-
+.product-details h2,
+.product-details [class*="title"],
 .product-details .paragraph h1,
 .product-details .paragraph h2,
-.product-details .paragraph h3 {
-  font-family: var(--t-font-heading) !important;
+.product-details .text-block h1,
+.product-details .text-block h2 {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-size: clamp(24px, 2.5vw, 34px) !important;
   font-weight: 400 !important;
-  color: var(--t-text) !important;
-  font-size: clamp(26px, 2.5vw, 34px) !important;
-  line-height: 1.15 !important;
+  line-height: 1.2 !important;
+  color: #1A1A1A !important;
   letter-spacing: -0.02em !important;
 }
 
-/* =====================
-   STAR RATING (if present)
-   ===================== */
-.product-details [class*="rating"],
-.product-details [class*="review-star"] {
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  margin-bottom: 12px !important;
-  font-size: 13px !important;
-  color: var(--t-text-mid) !important;
-}
-
-/* =====================
-   PRICE
-   Tumble: ~18-22px, semi-bold, dark
-   ===================== */
-.product-details .price,
-.product-details [class*="price"],
+/* Price */
+.price .money,
 .price__current,
 .price-item--regular,
 .price-item--sale {
-  font-family: var(--t-font-body) !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 20px !important;
   font-weight: 600 !important;
-  color: var(--t-text) !important;
+  color: #1A1A1A !important;
 }
-
 .price-item--compare-at,
-.price-item--compare,
-[class*="compare-price"] {
-  font-size: 16px !important;
-  font-weight: 400 !important;
-  color: var(--t-text-light) !important;
+.price-item--compare {
+  font-size: 15px !important;
+  color: #767676 !important;
   text-decoration: line-through !important;
+  font-weight: 400 !important;
 }
 
-/* =====================
-   FEATURE PILLS (Signature Tumble)
-   "Cushioned Pad · Machine Washable · Corner Pockets"
-   Horizontal scrolling pill row below price
-   ===================== */
-.tumble-pills {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 8px !important;
-  overflow-x: auto !important;
-  scrollbar-width: none !important;
-  padding: 16px 0 !important;
-  margin-bottom: 4px !important;
-  border-top: 1px solid var(--t-border) !important;
-  border-bottom: 1px solid var(--t-border) !important;
-}
-
-.tumble-pills::-webkit-scrollbar { display: none; }
-
-.tumble-pill {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  background: var(--t-bg-cream) !important;
-  border: 1px solid var(--t-border) !important;
-  border-radius: var(--t-radius-xl) !important;
-  padding: 7px 14px !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  color: var(--t-text) !important;
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-  font-family: var(--t-font-body) !important;
-}
-
-.tumble-pill svg {
-  width: 14px !important;
-  height: 14px !important;
-  color: var(--t-badge-green) !important;
-  flex-shrink: 0 !important;
-}
-
-/* =====================
-   VARIANT PICKER
-   Tumble: clean rectangle buttons
-   ===================== */
-.variant-picker,
-[class*="variant-picker"] {
-  margin-bottom: 16px !important;
-}
-
-/* Option label */
+/* ============================================================
+   7. VARIANT PICKER BUTTONS
+   ============================================================ */
+/* Label */
+.variant-picker label,
 .variant-picker__label,
-[class*="variant-label"],
 .form__label {
-  font-family: var(--t-font-body) !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: var(--t-text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.07em !important;
-  margin-bottom: 10px !important;
-  display: block !important;
+  letter-spacing: 0.08em !important;
+  color: #1A1A1A !important;
 }
 
-/* Variant option buttons */
-.variant-input,
-.variant-button,
-.variant-option,
+/* Option buttons */
 .swatch-input__btn,
-[class*="variant-input"] label,
-.variant-picker__option-button {
-  border: 1.5px solid var(--t-border) !important;
-  border-radius: var(--t-radius) !important;
-  background: var(--t-white) !important;
-  color: var(--t-text) !important;
-  font-family: var(--t-font-body) !important;
+.variant-input-wrap label,
+.variant-input label,
+.variant-option-btn {
+  border: 1.5px solid #E5E5E5 !important;
+  border-radius: 4px !important;
+  background: #FFFFFF !important;
+  color: #1A1A1A !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   padding: 10px 18px !important;
   cursor: pointer !important;
-  transition: all 0.18s ease !important;
-  min-height: 44px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  transition: border-color 0.2s ease !important;
 }
-
-.variant-input:hover,
 .swatch-input__btn:hover,
-.variant-button:hover {
-  border-color: var(--t-text) !important;
+.variant-input-wrap:hover label {
+  border-color: #1A1A1A !important;
 }
 
-/* SELECTED state */
-.variant-input-wrap:has(input:checked) label,
-.variant-input-wrap.selected label,
-.swatch-input__btn[aria-checked="true"],
-.variant-button[aria-pressed="true"],
-.variant-button.active {
-  background: var(--t-text) !important;
-  color: var(--t-white) !important;
-  border-color: var(--t-text) !important;
+/* ============================================================
+   8. ADD TO CART BUTTON — full black like Tumble
+   ============================================================ */
+button[name="add"],
+.product-form__submit,
+[id*="add-to-cart"],
+form[action*="/cart/add"] button[type="submit"] {
+  background-color: #1A1A1A !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 4px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  min-height: 54px !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  transition: background-color 0.25s ease !important;
+}
+button[name="add"]:hover,
+.product-form__submit:hover {
+  background-color: #333333 !important;
+}
+button[name="add"]:disabled,
+.product-form__submit[disabled] {
+  background-color: #767676 !important;
+  cursor: not-allowed !important;
 }
 
-/* =====================
-   QUANTITY
-   Tumble: bordered box with +/- and number in middle
-   ===================== */
+/* ============================================================
+   9. QUANTITY SELECTOR
+   ============================================================ */
 quantity-selector,
 .quantity-selector,
-quantity-input {
+.quantity {
+  border: 1.5px solid #E5E5E5 !important;
+  border-radius: 4px !important;
   display: inline-flex !important;
-  align-items: stretch !important;
-  border: 1.5px solid var(--t-border) !important;
-  border-radius: var(--t-radius) !important;
   overflow: hidden !important;
-  background: var(--t-white) !important;
-  height: 52px !important;
+  background: #FFFFFF !important;
 }
-
 quantity-selector button,
 .quantity-selector button,
 .quantity__button {
   background: transparent !important;
   border: none !important;
-  width: 48px !important;
-  height: 100% !important;
-  font-size: 20px !important;
-  font-weight: 300 !important;
-  color: var(--t-text) !important;
+  width: 44px !important;
+  font-size: 18px !important;
+  color: #1A1A1A !important;
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: background 0.15s !important;
-  flex-shrink: 0 !important;
 }
-
-quantity-selector button:hover,
-.quantity-selector button:hover {
-  background: var(--t-bg-light) !important;
-}
-
+quantity-selector button:hover { background: #F8F7F5 !important; }
 quantity-selector input,
 .quantity-selector input,
 .quantity__input {
   border: none !important;
-  border-inline: 1px solid var(--t-border) !important;
-  width: 56px !important;
+  border-left: 1px solid #E5E5E5 !important;
+  border-right: 1px solid #E5E5E5 !important;
+  width: 52px !important;
   text-align: center !important;
-  font-size: 15px !important;
   font-weight: 600 !important;
-  color: var(--t-text) !important;
+  font-size: 15px !important;
   background: transparent !important;
-  -moz-appearance: textfield !important;
-}
-
-quantity-selector input::-webkit-outer-spin-button,
-quantity-selector input::-webkit-inner-spin-button {
-  -webkit-appearance: none !important;
-  margin: 0 !important;
-}
-
-/* =====================
-   ADD TO CART BUTTON
-   Tumble: full width, dark near-black, white text, 54px height
-   ===================== */
-.product-form__submit,
-button[name="add"],
-[data-testid="add-to-cart-button"],
-.add-to-cart-btn {
-  background-color: var(--t-btn-bg) !important;
-  color: var(--t-btn-text) !important;
-  border: none !important;
-  border-radius: var(--t-radius) !important;
-  font-family: var(--t-font-body) !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.04em !important;
-  text-transform: uppercase !important;
-  padding: 16px 32px !important;
-  width: 100% !important;
-  min-height: 54px !important;
-  cursor: pointer !important;
-  transition: background-color 0.25s ease, transform 0.15s ease !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-}
-
-.product-form__submit:hover,
-button[name="add"]:hover {
-  background-color: #333333 !important;
-  transform: translateY(-1px) !important;
-}
-
-.product-form__submit:active,
-button[name="add"]:active {
-  transform: translateY(0) !important;
-}
-
-.product-form__submit:disabled,
-button[name="add"]:disabled {
-  background-color: var(--t-text-light) !important;
-  cursor: not-allowed !important;
-  transform: none !important;
-}
-
-/* =====================
-   TRUST / FREE SHIPPING BAR
-   Tumble: "Free Shipping & Free 30-Day Returns" below ATC
-   ===================== */
-.tumble-trust-bar {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 6px !important;
-  padding: 12px 0 !important;
-  font-size: 12.5px !important;
-  font-weight: 500 !important;
-  color: var(--t-text-mid) !important;
-  border-top: 1px solid var(--t-border) !important;
-  margin-top: 16px !important;
-  font-family: var(--t-font-body) !important;
-}
-
-.tumble-trust-bar svg {
-  width: 16px !important;
-  height: 16px !important;
-  color: var(--t-badge-green) !important;
-}
-
-/* =====================
-   PRODUCT DESCRIPTION TABS / ACCORDION
-   Tumble: clean accordion below main ATC section
-   ===================== */
-details,
-.accordion,
-.accordion-block {
-  border-top: 1px solid var(--t-border) !important;
-}
-
-details:last-of-type,
-.accordion:last-child {
-  border-bottom: 1px solid var(--t-border) !important;
-}
-
-details summary,
-.accordion__heading,
-.accordion-toggle {
-  font-family: var(--t-font-body) !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: var(--t-text) !important;
-  padding: 16px 0 !important;
-  cursor: pointer !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  list-style: none !important;
-  user-select: none !important;
-}
-
-details summary:hover,
-.accordion__heading:hover {
-  color: var(--t-accent) !important;
-}
-
-details[open] summary {
-  padding-bottom: 8px !important;
-}
-
-.accordion__content,
-details > *:not(summary) {
-  font-size: 14px !important;
-  line-height: 1.7 !important;
-  color: var(--t-text-mid) !important;
-  padding-bottom: 16px !important;
-  font-family: var(--t-font-body) !important;
-}
-
-/* ============================================================
-   7. FEATURE GRID SECTION
-   Tumble: 4-icon grid below product
-   "Machine Washable · Spillproof Surface · Pet & Kid Friendly · Cushioned Rug Pad"
-   ============================================================ */
-.tumble-feature-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 32px 24px !important;
-  padding: 48px 24px !important;
-  text-align: center !important;
-  border-top: 1px solid var(--t-border) !important;
-  border-bottom: 1px solid var(--t-border) !important;
-  background: var(--t-bg-light) !important;
-}
-
-@media (max-width: 749px) {
-  .tumble-feature-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    padding: 32px 16px !important;
-    gap: 28px 16px !important;
-  }
-}
-
-.tumble-feature-card {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 12px !important;
-}
-
-.tumble-feature-card__icon {
-  width: 60px !important;
-  height: 60px !important;
-  background: var(--t-white) !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
-}
-
-.tumble-feature-card__icon svg {
-  width: 28px !important;
-  height: 28px !important;
-  color: var(--t-badge-green) !important;
-}
-
-.tumble-feature-card__title {
-  font-family: var(--t-font-body) !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  color: var(--t-text) !important;
-  margin: 0 !important;
-}
-
-.tumble-feature-card__desc {
-  font-size: 12px !important;
-  color: var(--t-text-light) !important;
-  line-height: 1.5 !important;
-  margin: 0 !important;
-}
-
-/* ============================================================
-   8. STICKY ADD TO CART (Mobile/bottom bar)
-   ============================================================ */
-sticky-add-to-cart,
-.sticky-add-to-cart,
-[class*="sticky-atc"] {
-  background: var(--t-white) !important;
-  border-top: 1px solid var(--t-border) !important;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.08) !important;
-}
-
-/* ============================================================
-   9. PRODUCT RECOMMENDATIONS / "You May Also Like"
-   ============================================================ */
-.product-recommendations,
-[class*="recommendations"],
-[class*="related-products"] {
-  background: var(--t-bg-light) !important;
-  padding-top: 48px !important;
-  padding-bottom: 48px !important;
-}
-
-.product-recommendations h2,
-.product-recommendations h3,
-[class*="recommendations"] h2 {
-  font-family: var(--t-font-heading) !important;
-  font-size: 28px !important;
-  font-weight: 400 !important;
-  color: var(--t-text) !important;
-  text-align: center !important;
-  margin-bottom: 32px !important;
-}
-
-/* Product cards */
-.product-card,
-.card,
-.card-wrapper {
-  background: var(--t-white) !important;
-  border-radius: var(--t-radius-md) !important;
-  overflow: hidden !important;
-  transition: box-shadow 0.25s ease !important;
-}
-
-.product-card:hover,
-.card-wrapper:hover {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
-}
-
-/* Card title */
-.card__heading,
-.card__heading a,
-.product-card__name,
-[class*="card"] .title {
-  font-family: var(--t-font-body) !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  color: var(--t-text) !important;
-  line-height: 1.4 !important;
-}
-
-/* Card price */
-.card .price,
-.card [class*="price-item"] {
-  font-family: var(--t-font-body) !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: var(--t-text) !important;
+  color: #1A1A1A !important;
 }
 
 /* ============================================================
    10. GENERAL BUTTONS
    ============================================================ */
-.button,
-.btn {
-  font-family: var(--t-font-body) !important;
-  border-radius: var(--t-radius) !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.03em !important;
-  transition: all 0.2s ease !important;
-}
-
-.button--primary {
-  background: var(--t-btn-bg) !important;
-  color: var(--t-white) !important;
+.button--primary,
+.btn-primary {
+  background-color: #1A1A1A !important;
+  color: #FFFFFF !important;
   border: none !important;
+  border-radius: 4px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
 }
+.button--primary:hover { background-color: #333333 !important; }
 
-.button--primary:hover {
-  background: #333333 !important;
-}
-
-.button--secondary {
+.button--secondary,
+.btn-secondary {
   background: transparent !important;
-  color: var(--t-text) !important;
-  border: 1.5px solid var(--t-text) !important;
+  color: #1A1A1A !important;
+  border: 1.5px solid #1A1A1A !important;
+  border-radius: 4px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
 }
-
 .button--secondary:hover {
-  background: var(--t-text) !important;
-  color: var(--t-white) !important;
+  background: #1A1A1A !important;
+  color: #FFFFFF !important;
 }
 
 /* ============================================================
@@ -821,364 +394,218 @@ sticky-add-to-cart,
 input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="range"]),
 textarea,
 select {
-  font-family: var(--t-font-body) !important;
-  border: 1.5px solid var(--t-border) !important;
-  border-radius: var(--t-radius) !important;
-  background: var(--t-white) !important;
-  color: var(--t-text) !important;
-  font-size: 14px !important;
-  transition: border-color 0.2s ease !important;
+  font-family: 'DM Sans', sans-serif !important;
+  border: 1.5px solid #E5E5E5 !important;
+  border-radius: 4px !important;
+  background: #FFFFFF !important;
+  color: #1A1A1A !important;
 }
-
-input:not([type="radio"]):not([type="checkbox"]):focus,
-textarea:focus,
-select:focus {
+input:focus, textarea:focus, select:focus {
   outline: none !important;
-  border-color: var(--t-text) !important;
+  border-color: #1A1A1A !important;
 }
 
 /* ============================================================
-   12. BADGES
+   12. DIVIDERS / ACCORDIONS
    ============================================================ */
-.badge,
-.product-badge,
-[class*="badge"] {
-  font-family: var(--t-font-body) !important;
-  font-size: 10px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  border-radius: var(--t-radius-sm) !important;
-  padding: 4px 8px !important;
+hr, .divider, [class*="divider"] {
+  border-color: #E5E5E5 !important;
+  opacity: 1 !important;
 }
+details summary {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1A1A1A !important;
+  padding: 16px 0 !important;
+  cursor: pointer !important;
+  list-style: none !important;
+}
+details[open] summary { border-bottom: 1px solid #E5E5E5 !important; }
 
 /* ============================================================
-   13. CART DRAWER
+   13. PRODUCT MEDIA GALLERY
    ============================================================ */
-cart-drawer,
-.cart-drawer,
-#cart-drawer {
-  background: var(--t-white) !important;
+.product-media-gallery,
+.media-gallery {
+  background: #F8F7F5 !important;
+  border-radius: 8px !important;
 }
-
-cart-drawer h2,
-.cart-drawer__header-title {
-  font-family: var(--t-font-heading) !important;
-  font-weight: 400 !important;
-  font-size: 22px !important;
-  color: var(--t-text) !important;
-}
+.product-media img { border-radius: 4px !important; }
 
 /* ============================================================
-   14. SEARCH MODAL
+   14. PRODUCT CARDS
    ============================================================ */
-search-modal,
-.search-modal,
-#search-modal {
-  background: var(--t-white) !important;
+.card, .product-card, .card-wrapper {
+  background: #FFFFFF !important;
+  border-radius: 8px !important;
+}
+.card-wrapper:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07) !important;
+}
+.card__heading, .card__heading a {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #1A1A1A !important;
 }
 
 /* ============================================================
-   15. SECTION BACKGROUNDS
-   Override Horizon color schemes
-   ============================================================ */
-[class*="color-scheme-1"],
-[class*="color-scheme-2"],
-[class*="color-scheme-3"] {
-  background-color: var(--t-bg) !important;
-  --color-background: var(--t-bg) !important;
-  --color-foreground: var(--t-text) !important;
-  --color-border: var(--t-border) !important;
-}
-
-/* ============================================================
-   16. FOOTER
-   Tumble: dark background, 3-column grid:
-   Col 1: Newsletter + social links
-   Col 2: Shop links
-   Col 3: Company + Support links
-
-   Bottom bar: Copyright + policy links + payment icons
+   15. FOOTER — dark like Tumble
    ============================================================ */
 footer,
-.footer,
-footer .shopify-section,
-.shopify-section-group-footer-group {
-  background-color: var(--t-footer-bg) !important;
-  color: var(--t-footer-text) !important;
+.shopify-section-group-footer-group,
+footer .shopify-section {
+  background-color: #1A1A1A !important;
+  color: #BDBDBD !important;
 }
+footer * { background-color: transparent; }
+footer .section-background { background-color: #1A1A1A !important; }
 
-footer .section-background,
-footer *[class*="section-background"] {
-  background-color: var(--t-footer-bg) !important;
-}
-
-footer .section,
-footer [class*="section"] {
-  background: var(--t-footer-bg) !important;
-}
-
-/* Footer headings - SHOP, COMPANY, SUPPORT */
-footer h1,
-footer h2,
-footer h3,
-footer h4,
-footer h5,
-footer h6,
-footer .heading,
-footer strong {
-  color: var(--t-footer-head) !important;
-  font-family: var(--t-font-body) !important;
-  font-size: 12px !important;
+/* Footer headings */
+footer h1, footer h2, footer h3,
+footer h4, footer h5, footer h6,
+footer .heading {
+  color: #FFFFFF !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.12em !important;
-  margin-bottom: 20px !important;
+  background: transparent !important;
 }
 
-/* Footer links */
+/* Footer links and text */
 footer a {
-  color: var(--t-footer-text) !important;
-  font-family: var(--t-font-body) !important;
+  color: #BDBDBD !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 14px !important;
-  font-weight: 400 !important;
   text-decoration: none !important;
-  line-height: 1.5 !important;
-  transition: color 0.2s ease !important;
+  background: transparent !important;
   display: block !important;
   margin-bottom: 10px !important;
+  transition: color 0.2s !important;
 }
-
-footer a:hover {
-  color: var(--t-footer-head) !important;
-}
-
-/* Footer paragraph */
-footer p,
-footer span {
-  color: var(--t-footer-text) !important;
-  font-family: var(--t-font-body) !important;
+footer a:hover { color: #FFFFFF !important; }
+footer p, footer span, footer li {
+  color: #BDBDBD !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 13.5px !important;
-  line-height: 1.6 !important;
+  background: transparent !important;
 }
-
-/* Footer list */
-footer ul,
-footer ol {
+footer ul, footer ol {
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
 }
-
-footer li {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Footer SVG icons */
 footer svg {
-  fill: var(--t-footer-text) !important;
-  color: var(--t-footer-text) !important;
+  fill: #BDBDBD !important;
+  color: #BDBDBD !important;
 }
 
-/* Newsletter heading - larger than column headings */
-footer .newsletter-heading,
-footer [class*="newsletter"] h2,
-footer [class*="newsletter"] h3 {
-  font-size: 18px !important;
-  text-transform: none !important;
-  letter-spacing: normal !important;
-  font-weight: 600 !important;
-  color: var(--t-footer-head) !important;
-  font-family: var(--t-font-body) !important;
-}
-
-footer [class*="newsletter"] p {
-  font-size: 13.5px !important;
-  color: var(--t-footer-text) !important;
-  margin-bottom: 16px !important;
-}
-
-/* Newsletter email input */
+/* Footer newsletter input */
 footer input[type="email"],
 footer input[type="text"] {
   background: rgba(255,255,255,0.08) !important;
-  border: 1.5px solid rgba(255,255,255,0.18) !important;
-  border-radius: var(--t-radius) !important;
-  color: var(--t-footer-head) !important;
-  font-family: var(--t-font-body) !important;
-  font-size: 14px !important;
+  border: 1.5px solid rgba(255,255,255,0.2) !important;
+  border-radius: 4px !important;
+  color: #FFFFFF !important;
   padding: 13px 16px !important;
-  width: 100% !important;
-  transition: border-color 0.2s ease, background 0.2s ease !important;
 }
+footer input::placeholder { color: rgba(189,189,189,0.5) !important; }
+footer input:focus { border-color: rgba(255,255,255,0.45) !important; outline: none !important; }
 
-footer input[type="email"]::placeholder {
-  color: rgba(189,189,189,0.55) !important;
-}
-
-footer input[type="email"]:focus {
-  border-color: rgba(255,255,255,0.45) !important;
-  background: rgba(255,255,255,0.12) !important;
-  outline: none !important;
-}
-
-/* Newsletter submit button */
+/* Footer submit button */
 footer button[type="submit"],
-footer input[type="submit"],
-footer [class*="newsletter-form__button"],
 footer [class*="newsletter"] button {
-  background: var(--t-footer-head) !important;
-  color: var(--t-footer-bg) !important;
+  background: #FFFFFF !important;
+  color: #1A1A1A !important;
   border: none !important;
-  border-radius: var(--t-radius) !important;
-  font-family: var(--t-font-body) !important;
-  font-size: 13px !important;
+  border-radius: 4px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
   padding: 13px 22px !important;
   cursor: pointer !important;
-  transition: background 0.2s ease !important;
-  white-space: nowrap !important;
 }
+footer button[type="submit"]:hover { background: #EEEEEE !important; }
 
-footer button[type="submit"]:hover {
-  background: #EEEEEE !important;
-}
-
-/* Social links row */
-footer [class*="social-links"],
-footer [class*="social-icons"] {
-  display: flex !important;
-  gap: 12px !important;
-  margin-top: 20px !important;
-  flex-wrap: wrap !important;
-  align-items: center !important;
-}
-
-footer [class*="social-links"] a,
-footer [class*="social-icons"] a {
-  width: 38px !important;
-  height: 38px !important;
+/* Footer social icons */
+footer [class*="social"] a {
+  width: 36px !important;
+  height: 36px !important;
   border-radius: 50% !important;
   background: rgba(255,255,255,0.1) !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   margin-bottom: 0 !important;
-  transition: background 0.2s ease !important;
 }
+footer [class*="social"] a:hover { background: rgba(255,255,255,0.2) !important; }
 
-footer [class*="social-links"] a:hover,
-footer [class*="social-icons"] a:hover {
-  background: rgba(255,255,255,0.2) !important;
-}
-
-footer [class*="social-links"] svg,
-footer [class*="social-icons"] svg {
-  width: 18px !important;
-  height: 18px !important;
-}
-
-/* Footer utilities / bottom bar */
+/* Footer utilities */
 .footer-utilities,
 .utilities,
 footer [class*="utilities"] {
-  background-color: var(--t-footer-bg) !important;
-  border-top: 1px solid rgba(255,255,255,0.07) !important;
-  padding: 16px 0 !important;
+  background-color: #1A1A1A !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
 }
-
 .footer-utilities *,
-.utilities *,
-footer [class*="utilities"] * {
+.utilities * {
   color: rgba(189,189,189,0.6) !important;
   font-size: 12px !important;
-  font-family: var(--t-font-body) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  background: transparent !important;
 }
-
 .footer-utilities a:hover,
-.utilities a:hover {
-  color: var(--t-footer-text) !important;
-}
+.utilities a:hover { color: #BDBDBD !important; }
 
-/* Payment icons */
-footer [class*="payment"],
-.footer-utilities [class*="payment"] {
-  opacity: 0.65 !important;
+/* ============================================================
+   16. CART DRAWER
+   ============================================================ */
+cart-drawer,
+.cart-drawer,
+#cart-drawer {
+  background: #FFFFFF !important;
+}
+cart-drawer h2, .cart-drawer__header-title {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-weight: 400 !important;
+  color: #1A1A1A !important;
 }
 
 /* ============================================================
-   17. HEADINGS ACROSS ALL SECTIONS
+   17. BREADCRUMB
    ============================================================ */
-h1, h2 {
-  font-family: var(--t-font-heading) !important;
-  font-weight: 400 !important;
-}
-
-h3, h4, h5, h6 {
-  font-family: var(--t-font-body) !important;
-}
-
-/* General section headings */
-.section-heading,
-.section__header h2,
-[class*="section-title"] {
-  font-family: var(--t-font-heading) !important;
-  font-size: clamp(24px, 3vw, 36px) !important;
-  font-weight: 400 !important;
-  color: var(--t-text) !important;
-  letter-spacing: -0.01em !important;
+.breadcrumb a, .breadcrumbs a {
+  font-size: 12px !important;
+  color: #767676 !important;
 }
 
 /* ============================================================
-   18. PAGE WIDTH CONTAINER
+   18. BADGES
    ============================================================ */
-.page-width {
-  max-width: 1280px !important;
-  padding-left: 24px !important;
-  padding-right: 24px !important;
-  margin: 0 auto !important;
+.badge, [class*="badge"] {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  background: #1A1A1A !important;
+  color: #FFFFFF !important;
 }
 
+/* ============================================================
+   19. RESPONSIVE
+   ============================================================ */
 @media (max-width: 749px) {
-  .page-width {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+  .product-details h1,
+  .product-details h2 {
+    font-size: 26px !important;
   }
-}
-
-/* ============================================================
-   19. SCROLLBAR
-   ============================================================ */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--t-bg-light);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--t-border-dark);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--t-accent);
-}
-
-/* ============================================================
-   20. TRANSITIONS & ANIMATIONS
-   ============================================================ */
-a,
-button {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease !important;
-}
-
-/* Fade-in for lazy images */
-.product-media img {
-  transition: opacity 0.3s ease !important;
+  footer { text-align: left !important; }
 }
