@@ -459,7 +459,6 @@ footer .shopify-section {
   background-color: #1A1A1A !important;
   color: #BDBDBD !important;
 }
-footer * { background-color: transparent; }
 footer .section-background { background-color: #1A1A1A !important; }
 
 /* Footer headings */
@@ -472,7 +471,6 @@ footer .heading {
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.12em !important;
-  background: transparent !important;
 }
 
 /* Footer links and text */
@@ -481,8 +479,7 @@ footer a {
   font-family: 'DM Sans', sans-serif !important;
   font-size: 14px !important;
   text-decoration: none !important;
-  background: transparent !important;
-  display: block !important;
+  display: inline-block !important;
   margin-bottom: 10px !important;
   transition: color 0.2s !important;
 }
@@ -491,7 +488,6 @@ footer p, footer span, footer li {
   color: #BDBDBD !important;
   font-family: 'DM Sans', sans-serif !important;
   font-size: 13.5px !important;
-  background: transparent !important;
 }
 footer ul, footer ol {
   list-style: none !important;
