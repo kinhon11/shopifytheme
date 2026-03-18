@@ -1,38 +1,53 @@
-/* ==========================================================
-   TUMBLE LIVING INSPIRED DESIGN
-   Warm neutral, clean, minimal - matching tumbleliving.com
-   ========================================================== */
+/* ============================================================
+   TUMBLE LIVING - EXACT DESIGN MATCH
+   Reference: tumbleliving.com/products/lisa-midnight
+   ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 
-/* =====================
-   VARIABLES
-   ===================== */
+/* ============================================================
+   DESIGN TOKENS
+   Tumble uses: pure white bg, dark charcoal text, sage/tan accents
+   ============================================================ */
 :root {
-  --c-cream:       #FDFAF7;
-  --c-cream2:      #F9F6F2;
-  --c-cream3:      #F0EBE3;
-  --c-taupe:       #C3B5A0;
-  --c-brown:       #8B7355;
-  --c-dark:        #2C2118;
-  --c-dark2:       #3D3028;
-  --c-text:        #2C2118;
-  --c-text-muted:  #5A4A3F;
-  --c-border:      #E8E0D8;
-  --c-footer-bg:   #2C2118;
-  --c-footer-text: #D4C8BC;
+  /* Colors */
+  --t-white:       #FFFFFF;
+  --t-bg:          #FFFFFF;
+  --t-bg-light:    #F8F7F5;
+  --t-bg-cream:    #F5F3EF;
+  --t-text:        #1A1A1A;
+  --t-text-mid:    #4A4A4A;
+  --t-text-light:  #767676;
+  --t-border:      #E5E5E5;
+  --t-border-dark: #C8C8C8;
+  --t-accent:      #8C7B6B;       /* Tumble's warm taupe accent */
+  --t-badge-green: #3D7A5B;       /* feature badge green */
+  --t-btn-bg:      #1A1A1A;       /* Add to cart: near-black */
+  --t-btn-text:    #FFFFFF;
+  --t-bar-bg:      #1A1A1A;       /* Announcement: dark */
+  --t-bar-text:    #FFFFFF;
+  --t-footer-bg:   #1A1A1A;       /* Footer dark */
+  --t-footer-text: #BDBDBD;
+  --t-footer-head: #FFFFFF;
 
-  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: 'DM Serif Display', Georgia, serif;
+  /* Typography */
+  --t-font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --t-font-heading: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 
-  --radius:    6px;
-  --radius-sm: 4px;
-  --radius-lg: 12px;
+  /* Spacing & radius */
+  --t-radius:    4px;
+  --t-radius-md: 8px;
+  --t-radius-lg: 16px;
+  --t-radius-xl: 100px; /* pill */
 }
 
-/* =====================
-   1. BASE
-   ===================== */
+/* ============================================================
+   1. GLOBAL BASE
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {
@@ -40,243 +55,437 @@
 }
 
 body {
-  font-family: var(--font-body) !important;
-  background-color: var(--c-cream) !important;
-  color: var(--c-text) !important;
+  font-family: var(--t-font-body) !important;
+  background-color: var(--t-bg) !important;
+  color: var(--t-text) !important;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-heading) !important;
-  color: var(--c-text) !important;
-  font-weight: 400 !important;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* =====================
+/* ============================================================
    2. ANNOUNCEMENT BAR
-   ===================== */
+   Tumble: thin dark bar, white small text, centered
+   ============================================================ */
 .announcement-bar,
 .header-announcements,
-[class*="announcement"] {
-  background: var(--c-dark) !important;
-  color: var(--c-cream2) !important;
+.announcement,
+[class*="announcement-bar"],
+[class*="header-announcement"] {
+  background-color: var(--t-bar-bg) !important;
+  min-height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .announcement-bar *,
 .header-announcements * {
-  color: var(--c-cream2) !important;
-  font-family: var(--font-body) !important;
-  font-size: 13px !important;
+  color: var(--t-bar-text) !important;
+  font-family: var(--t-font-body) !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+  text-align: center !important;
 }
 
-/* =====================
+/* ============================================================
    3. HEADER
-   ===================== */
-header,
+   Tumble: pure white bg, logo centered/left, nav links,
+   icons top-right, thin bottom border
+   ============================================================ */
+.shopify-section-group-header-group,
 .header-section,
-.header-wrapper,
 header-component,
-#header-component,
-.shopify-section-group-header-group {
-  background: var(--c-cream) !important;
-  border-bottom: 1px solid var(--c-border) !important;
+#header-component {
+  background: var(--t-white) !important;
+  border-bottom: 1px solid var(--t-border) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
 }
 
-/* Remove any colored background from header */
 .header,
 .header__row,
 .header__row--top,
-.header__row--bottom {
-  background: var(--c-cream) !important;
-  background-color: var(--c-cream) !important;
+.header__row--bottom,
+.header-wrapper {
+  background-color: var(--t-white) !important;
+  background: var(--t-white) !important;
 }
 
-/* Logo */
-.header-logo,
+/* Header section background override */
+.header-section .section-background {
+  background-color: var(--t-white) !important;
+}
+
+/* Logo text */
+.header__heading,
 .header__heading-logo,
-.header__heading {
-  font-family: var(--font-heading) !important;
-  color: var(--c-text) !important;
+.header-logo {
+  font-family: var(--t-font-heading) !important;
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  color: var(--t-text) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.header__heading img,
+.header-logo img {
+  max-height: 36px !important;
+  width: auto !important;
 }
 
 /* Nav links */
 .menu-list__link,
+.header__menu-item > a,
 .header-menu a,
 .header-menu button,
-.header__menu-item a,
-nav a {
-  font-family: var(--font-body) !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  color: var(--c-text) !important;
+overflow-list a {
+  font-family: var(--t-font-body) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: var(--t-text) !important;
   letter-spacing: 0.01em !important;
   text-transform: none !important;
+  text-decoration: none !important;
+  padding: 4px 0 !important;
+  border-bottom: 1.5px solid transparent !important;
+  transition: border-color 0.2s ease, color 0.2s ease !important;
 }
 
 .menu-list__link:hover,
 .header-menu a:hover {
-  color: var(--c-brown) !important;
+  color: var(--t-text) !important;
+  border-bottom-color: var(--t-text) !important;
+}
+
+/* Header icons - search, account, cart, wishlist */
+.header-actions__action,
+.search-action,
+.account-button,
+.header__icon {
+  color: var(--t-text) !important;
   opacity: 1 !important;
 }
 
-/* Header icons */
 .header-actions__action svg,
-.header-actions__cart-icon svg,
 .search-action svg,
-.account-button svg {
-  color: var(--c-text) !important;
+.account-button svg,
+.header__icon svg {
+  color: var(--t-text) !important;
+  fill: none !important;
+  stroke: var(--t-text) !important;
+  width: 20px !important;
+  height: 20px !important;
 }
 
-/* =====================
-   4. PRODUCT PAGE LAYOUT
-   ===================== */
-.product-information,
-.template-product main,
-[data-testid="product-information"] {
-  background: var(--c-cream) !important;
+/* Cart count badge */
+.header-actions__cart-count,
+.cart-count-bubble,
+[class*="cart-count"] {
+  background: var(--t-text) !important;
+  color: var(--t-white) !important;
+  font-family: var(--t-font-body) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
 }
 
-/* =====================
-   5. PRODUCT TITLE
-   ===================== */
-.product-details h1,
-.product-details h2,
-.product-details h3,
-.product-details [class*="title"] {
-  font-family: var(--font-heading) !important;
-  font-size: clamp(24px, 3vw, 34px) !important;
+/* Mega menu dropdown */
+.mega-menu,
+.header-menu__dropdown,
+.dropdown-panel,
+.disclosure__panel {
+  background: var(--t-white) !important;
+  border: 1px solid var(--t-border) !important;
+  border-top: 2px solid var(--t-text) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08) !important;
+}
+
+.mega-menu a,
+.dropdown-panel a {
+  font-size: 13.5px !important;
+  color: var(--t-text-mid) !important;
   font-weight: 400 !important;
-  line-height: 1.2 !important;
-  color: var(--c-text) !important;
-  letter-spacing: -0.01em !important;
 }
 
-/* Horizon theme wraps title in a text-block */
-.product-details .text-block h1,
-.product-details .text-block h2,
-.product-details .paragraph h1,
-.product-details .paragraph h2 {
-  font-family: var(--font-heading) !important;
-  font-weight: 400 !important;
-  color: var(--c-text) !important;
+.mega-menu a:hover,
+.dropdown-panel a:hover {
+  color: var(--t-text) !important;
 }
 
-/* =====================
-   6. PRICE
-   ===================== */
-.price__current,
-.price-item--regular,
-.price-item--sale,
-.price .money {
-  font-family: var(--font-body) !important;
-  font-size: 20px !important;
-  font-weight: 600 !important;
-  color: var(--c-text) !important;
+/* ============================================================
+   4. PAGE BACKGROUND
+   ============================================================ */
+main,
+.content-for-layout,
+.shopify-section:not(.shopify-section-group-footer-group):not(.shopify-section-group-header-group) {
+  background-color: var(--t-bg) !important;
 }
 
-.price-item--compare-at,
-.price-item--compare {
-  text-decoration: line-through !important;
-  color: var(--c-text-muted) !important;
-  font-weight: 400 !important;
-  font-size: 16px !important;
+/* ============================================================
+   5. PRODUCT PAGE - IMAGE GALLERY (Left col)
+   Tumble: vertical thumbnail strip on LEFT side, large main image
+   ============================================================ */
+.product-media-gallery,
+.media-gallery,
+[data-testid="product-information-media"] {
+  background: var(--t-bg-light) !important;
+  border-radius: var(--t-radius-md) !important;
+  overflow: hidden;
 }
 
-/* =====================
-   7. VARIANT BUTTONS
-   ===================== */
-.variant-input-wrap,
-.variant-picker__option,
-.swatch-input__btn,
-.variant-button,
-.variant-option-btn {
-  border: 1.5px solid var(--c-border) !important;
-  border-radius: var(--radius) !important;
-  background: var(--c-cream) !important;
-  color: var(--c-text) !important;
-  font-family: var(--font-body) !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  padding: 9px 16px !important;
-  transition: all 0.2s ease !important;
+.product-media,
+.product-media-gallery__item {
+  background: var(--t-bg-light) !important;
+}
+
+.product-media img,
+.media-gallery img {
+  border-radius: var(--t-radius) !important;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Thumbnail buttons */
+.product-media-gallery__thumbnail,
+.media-thumbnail,
+[class*="thumbnail-button"] {
+  border: 2px solid transparent !important;
+  border-radius: var(--t-radius) !important;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: opacity 0.2s, border-color 0.2s !important;
   cursor: pointer;
 }
 
-.variant-input-wrap:hover,
+.product-media-gallery__thumbnail:hover,
+.product-media-gallery__thumbnail[aria-pressed="true"],
+.product-media-gallery__thumbnail[aria-current="true"] {
+  border-color: var(--t-text) !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   6. PRODUCT DETAILS (Right col)
+   ============================================================ */
+.product-details,
+[data-testid="product-details"] {
+  background: var(--t-bg) !important;
+  padding-top: 8px !important;
+}
+
+/* Breadcrumb */
+.breadcrumb,
+nav[aria-label="breadcrumb"],
+.breadcrumbs {
+  font-size: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+.breadcrumb a,
+.breadcrumbs a {
+  color: var(--t-text-light) !important;
+  font-size: 12px !important;
+  text-decoration: none !important;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline !important;
+}
+
+/* =====================
+   PRODUCT TITLE
+   Tumble: large serif, 30-36px, dark, font-weight 400
+   ===================== */
+.product-details h1,
+.product-details .h1,
+.product-details [class*="product-title"],
+.product-details [class*="title"] h1,
+.product-details [class*="title"] h2 {
+  font-family: var(--t-font-heading) !important;
+  font-size: clamp(26px, 2.5vw, 36px) !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  color: var(--t-text) !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 10px !important;
+}
+
+/* Horizon theme wraps title in paragraph blocks */
+.product-details .paragraph,
+.product-details .text-block {
+  margin-bottom: 0 !important;
+}
+
+.product-details .paragraph h1,
+.product-details .paragraph h2,
+.product-details .paragraph h3 {
+  font-family: var(--t-font-heading) !important;
+  font-weight: 400 !important;
+  color: var(--t-text) !important;
+  font-size: clamp(26px, 2.5vw, 34px) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* =====================
+   STAR RATING (if present)
+   ===================== */
+.product-details [class*="rating"],
+.product-details [class*="review-star"] {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-bottom: 12px !important;
+  font-size: 13px !important;
+  color: var(--t-text-mid) !important;
+}
+
+/* =====================
+   PRICE
+   Tumble: ~18-22px, semi-bold, dark
+   ===================== */
+.product-details .price,
+.product-details [class*="price"],
+.price__current,
+.price-item--regular,
+.price-item--sale {
+  font-family: var(--t-font-body) !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: var(--t-text) !important;
+}
+
+.price-item--compare-at,
+.price-item--compare,
+[class*="compare-price"] {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: var(--t-text-light) !important;
+  text-decoration: line-through !important;
+}
+
+/* =====================
+   FEATURE PILLS (Signature Tumble)
+   "Cushioned Pad · Machine Washable · Corner Pockets"
+   Horizontal scrolling pill row below price
+   ===================== */
+.tumble-pills {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  padding: 16px 0 !important;
+  margin-bottom: 4px !important;
+  border-top: 1px solid var(--t-border) !important;
+  border-bottom: 1px solid var(--t-border) !important;
+}
+
+.tumble-pills::-webkit-scrollbar { display: none; }
+
+.tumble-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: var(--t-bg-cream) !important;
+  border: 1px solid var(--t-border) !important;
+  border-radius: var(--t-radius-xl) !important;
+  padding: 7px 14px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--t-text) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  font-family: var(--t-font-body) !important;
+}
+
+.tumble-pill svg {
+  width: 14px !important;
+  height: 14px !important;
+  color: var(--t-badge-green) !important;
+  flex-shrink: 0 !important;
+}
+
+/* =====================
+   VARIANT PICKER
+   Tumble: clean rectangle buttons
+   ===================== */
+.variant-picker,
+[class*="variant-picker"] {
+  margin-bottom: 16px !important;
+}
+
+/* Option label */
+.variant-picker__label,
+[class*="variant-label"],
+.form__label {
+  font-family: var(--t-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--t-text) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  margin-bottom: 10px !important;
+  display: block !important;
+}
+
+/* Variant option buttons */
+.variant-input,
+.variant-button,
+.variant-option,
+.swatch-input__btn,
+[class*="variant-input"] label,
+.variant-picker__option-button {
+  border: 1.5px solid var(--t-border) !important;
+  border-radius: var(--t-radius) !important;
+  background: var(--t-white) !important;
+  color: var(--t-text) !important;
+  font-family: var(--t-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 10px 18px !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.variant-input:hover,
 .swatch-input__btn:hover,
 .variant-button:hover {
-  border-color: var(--c-text) !important;
-  background: var(--c-cream2) !important;
+  border-color: var(--t-text) !important;
 }
 
-/* Selected variant */
-.variant-input-wrap:has(input:checked),
-.variant-input-wrap.selected,
-.swatch-input__btn.selected,
-.variant-button[aria-checked="true"],
-.variant-button.selected {
-  background: var(--c-text) !important;
-  color: var(--c-cream2) !important;
-  border-color: var(--c-text) !important;
-}
-
-/* =====================
-   8. ADD TO CART BUTTON
-   ===================== */
-.shopify-payment-button,
-button[name="add"],
-.product-form__submit,
-form[action*="/cart/add"] button[type="submit"],
-[data-testid="add-to-cart-button"] {
-  background-color: var(--c-dark) !important;
-  color: var(--c-cream2) !important;
-  border: none !important;
-  border-radius: var(--radius) !important;
-  font-family: var(--font-body) !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  padding: 16px 28px !important;
-  width: 100% !important;
-  min-height: 54px !important;
-  letter-spacing: 0.02em !important;
-  transition: background-color 0.25s ease, transform 0.15s ease !important;
-  cursor: pointer !important;
-}
-
-button[name="add"]:hover,
-.product-form__submit:hover {
-  background-color: var(--c-dark2) !important;
-  transform: translateY(-1px) !important;
-}
-
-button[name="add"]:active,
-.product-form__submit:active {
-  transform: translateY(0) !important;
-}
-
-button[name="add"][disabled],
-.product-form__submit[disabled] {
-  background-color: var(--c-taupe) !important;
-  cursor: not-allowed !important;
-  transform: none !important;
+/* SELECTED state */
+.variant-input-wrap:has(input:checked) label,
+.variant-input-wrap.selected label,
+.swatch-input__btn[aria-checked="true"],
+.variant-button[aria-pressed="true"],
+.variant-button.active {
+  background: var(--t-text) !important;
+  color: var(--t-white) !important;
+  border-color: var(--t-text) !important;
 }
 
 /* =====================
-   9. QUANTITY SELECTOR
+   QUANTITY
+   Tumble: bordered box with +/- and number in middle
    ===================== */
 quantity-selector,
-.quantity-input,
-.quantity-selector {
+.quantity-selector,
+quantity-input {
   display: inline-flex !important;
-  border: 1.5px solid var(--c-border) !important;
-  border-radius: var(--radius) !important;
+  align-items: stretch !important;
+  border: 1.5px solid var(--t-border) !important;
+  border-radius: var(--t-radius) !important;
   overflow: hidden !important;
-  background: var(--c-cream) !important;
+  background: var(--t-white) !important;
+  height: 52px !important;
 }
 
 quantity-selector button,
@@ -284,225 +493,476 @@ quantity-selector button,
 .quantity__button {
   background: transparent !important;
   border: none !important;
-  padding: 0 14px !important;
-  font-size: 18px !important;
+  width: 48px !important;
+  height: 100% !important;
+  font-size: 20px !important;
   font-weight: 300 !important;
-  color: var(--c-text) !important;
+  color: var(--t-text) !important;
   cursor: pointer !important;
-  transition: background 0.15s ease !important;
-  min-width: 42px !important;
-  height: 48px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  transition: background 0.15s !important;
+  flex-shrink: 0 !important;
 }
 
 quantity-selector button:hover,
 .quantity-selector button:hover {
-  background: var(--c-cream2) !important;
+  background: var(--t-bg-light) !important;
 }
 
 quantity-selector input,
 .quantity-selector input,
 .quantity__input {
   border: none !important;
-  border-left: 1px solid var(--c-border) !important;
-  border-right: 1px solid var(--c-border) !important;
-  width: 52px !important;
+  border-inline: 1px solid var(--t-border) !important;
+  width: 56px !important;
   text-align: center !important;
-  font-weight: 600 !important;
   font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--t-text) !important;
   background: transparent !important;
-  color: var(--c-text) !important;
-  height: 48px !important;
+  -moz-appearance: textfield !important;
+}
+
+quantity-selector input::-webkit-outer-spin-button,
+quantity-selector input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
 }
 
 /* =====================
-   10. PRODUCT IMAGE
+   ADD TO CART BUTTON
+   Tumble: full width, dark near-black, white text, 54px height
    ===================== */
-.product-media-gallery,
-.media-gallery,
-.product-media {
-  background: var(--c-cream2) !important;
-  border-radius: var(--radius) !important;
+.product-form__submit,
+button[name="add"],
+[data-testid="add-to-cart-button"],
+.add-to-cart-btn {
+  background-color: var(--t-btn-bg) !important;
+  color: var(--t-btn-text) !important;
+  border: none !important;
+  border-radius: var(--t-radius) !important;
+  font-family: var(--t-font-body) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  padding: 16px 32px !important;
+  width: 100% !important;
+  min-height: 54px !important;
+  cursor: pointer !important;
+  transition: background-color 0.25s ease, transform 0.15s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
 }
 
-.product-media img,
-.media-gallery img {
-  border-radius: var(--radius) !important;
+.product-form__submit:hover,
+button[name="add"]:hover {
+  background-color: #333333 !important;
+  transform: translateY(-1px) !important;
 }
 
-/* Thumbnails */
-.media-thumbnail,
-.product-media-gallery__thumbnail,
-[class*="thumbnail"] {
-  border: 2px solid transparent !important;
-  border-radius: var(--radius-sm) !important;
-  cursor: pointer;
-  transition: border-color 0.2s !important;
-  overflow: hidden;
+.product-form__submit:active,
+button[name="add"]:active {
+  transform: translateY(0) !important;
 }
 
-[class*="thumbnail"]:hover,
-[class*="thumbnail"][aria-current="true"],
-[class*="thumbnail"][aria-pressed="true"] {
-  border-color: var(--c-text) !important;
+.product-form__submit:disabled,
+button[name="add"]:disabled {
+  background-color: var(--t-text-light) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
 }
 
 /* =====================
-   11. PRODUCT DESCRIPTION / TEXT
+   TRUST / FREE SHIPPING BAR
+   Tumble: "Free Shipping & Free 30-Day Returns" below ATC
    ===================== */
-.product-details p,
-.product-details .rte,
-.product-details .text-block p,
-.product-details li {
-  font-family: var(--font-body) !important;
+.tumble-trust-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 12px 0 !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  color: var(--t-text-mid) !important;
+  border-top: 1px solid var(--t-border) !important;
+  margin-top: 16px !important;
+  font-family: var(--t-font-body) !important;
+}
+
+.tumble-trust-bar svg {
+  width: 16px !important;
+  height: 16px !important;
+  color: var(--t-badge-green) !important;
+}
+
+/* =====================
+   PRODUCT DESCRIPTION TABS / ACCORDION
+   Tumble: clean accordion below main ATC section
+   ===================== */
+details,
+.accordion,
+.accordion-block {
+  border-top: 1px solid var(--t-border) !important;
+}
+
+details:last-of-type,
+.accordion:last-child {
+  border-bottom: 1px solid var(--t-border) !important;
+}
+
+details summary,
+.accordion__heading,
+.accordion-toggle {
+  font-family: var(--t-font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--t-text) !important;
+  padding: 16px 0 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  list-style: none !important;
+  user-select: none !important;
+}
+
+details summary:hover,
+.accordion__heading:hover {
+  color: var(--t-accent) !important;
+}
+
+details[open] summary {
+  padding-bottom: 8px !important;
+}
+
+.accordion__content,
+details > *:not(summary) {
   font-size: 14px !important;
   line-height: 1.7 !important;
-  color: var(--c-text-muted) !important;
+  color: var(--t-text-mid) !important;
+  padding-bottom: 16px !important;
+  font-family: var(--t-font-body) !important;
 }
 
-/* =====================
-   12. DIVIDERS IN PRODUCT
-   ===================== */
-.divider,
-hr,
-[class*="divider"] {
-  border-color: var(--c-border) !important;
-  opacity: 1 !important;
+/* ============================================================
+   7. FEATURE GRID SECTION
+   Tumble: 4-icon grid below product
+   "Machine Washable · Spillproof Surface · Pet & Kid Friendly · Cushioned Rug Pad"
+   ============================================================ */
+.tumble-feature-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 32px 24px !important;
+  padding: 48px 24px !important;
+  text-align: center !important;
+  border-top: 1px solid var(--t-border) !important;
+  border-bottom: 1px solid var(--t-border) !important;
+  background: var(--t-bg-light) !important;
 }
 
-/* =====================
-   13. STICKY ATC BAR
-   ===================== */
+@media (max-width: 749px) {
+  .tumble-feature-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 32px 16px !important;
+    gap: 28px 16px !important;
+  }
+}
+
+.tumble-feature-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.tumble-feature-card__icon {
+  width: 60px !important;
+  height: 60px !important;
+  background: var(--t-white) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+}
+
+.tumble-feature-card__icon svg {
+  width: 28px !important;
+  height: 28px !important;
+  color: var(--t-badge-green) !important;
+}
+
+.tumble-feature-card__title {
+  font-family: var(--t-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--t-text) !important;
+  margin: 0 !important;
+}
+
+.tumble-feature-card__desc {
+  font-size: 12px !important;
+  color: var(--t-text-light) !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* ============================================================
+   8. STICKY ADD TO CART (Mobile/bottom bar)
+   ============================================================ */
 sticky-add-to-cart,
 .sticky-add-to-cart,
-[data-sticky-atc] {
-  background: var(--c-cream) !important;
-  border-top: 1px solid var(--c-border) !important;
-  box-shadow: 0 -4px 24px rgba(44, 33, 24, 0.08) !important;
+[class*="sticky-atc"] {
+  background: var(--t-white) !important;
+  border-top: 1px solid var(--t-border) !important;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08) !important;
 }
 
-/* =====================
-   14. INPUTS & FORMS
-   ===================== */
-input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
-textarea,
-select {
-  font-family: var(--font-body) !important;
-  background: var(--c-cream) !important;
-  border: 1.5px solid var(--c-border) !important;
-  border-radius: var(--radius) !important;
-  color: var(--c-text) !important;
-  transition: border-color 0.2s ease !important;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none !important;
-  border-color: var(--c-brown) !important;
-}
-
-/* =====================
-   15. PRODUCT RECOMMENDATIONS
-   ===================== */
+/* ============================================================
+   9. PRODUCT RECOMMENDATIONS / "You May Also Like"
+   ============================================================ */
 .product-recommendations,
-[class*="recommendations"] {
-  background: var(--c-cream2) !important;
-  border-top: 1px solid var(--c-border) !important;
+[class*="recommendations"],
+[class*="related-products"] {
+  background: var(--t-bg-light) !important;
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
 }
 
 .product-recommendations h2,
-.product-recommendations h3 {
-  font-family: var(--font-heading) !important;
+.product-recommendations h3,
+[class*="recommendations"] h2 {
+  font-family: var(--t-font-heading) !important;
+  font-size: 28px !important;
   font-weight: 400 !important;
-  color: var(--c-text) !important;
+  color: var(--t-text) !important;
+  text-align: center !important;
+  margin-bottom: 32px !important;
 }
 
 /* Product cards */
 .product-card,
-.card-wrapper,
-.card {
-  background: var(--c-cream) !important;
-  border-radius: var(--radius) !important;
+.card,
+.card-wrapper {
+  background: var(--t-white) !important;
+  border-radius: var(--t-radius-md) !important;
+  overflow: hidden !important;
   transition: box-shadow 0.25s ease !important;
 }
 
 .product-card:hover,
 .card-wrapper:hover {
-  box-shadow: 0 4px 24px rgba(44, 33, 24, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
 }
 
+/* Card title */
 .card__heading,
-.card .title,
-[class*="card"] h2,
-[class*="card"] h3 {
-  font-family: var(--font-body) !important;
+.card__heading a,
+.product-card__name,
+[class*="card"] .title {
+  font-family: var(--t-font-body) !important;
   font-size: 14px !important;
   font-weight: 500 !important;
-  color: var(--c-text) !important;
+  color: var(--t-text) !important;
+  line-height: 1.4 !important;
 }
 
-/* =====================
+/* Card price */
+.card .price,
+.card [class*="price-item"] {
+  font-family: var(--t-font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--t-text) !important;
+}
+
+/* ============================================================
+   10. GENERAL BUTTONS
+   ============================================================ */
+.button,
+.btn {
+  font-family: var(--t-font-body) !important;
+  border-radius: var(--t-radius) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  transition: all 0.2s ease !important;
+}
+
+.button--primary {
+  background: var(--t-btn-bg) !important;
+  color: var(--t-white) !important;
+  border: none !important;
+}
+
+.button--primary:hover {
+  background: #333333 !important;
+}
+
+.button--secondary {
+  background: transparent !important;
+  color: var(--t-text) !important;
+  border: 1.5px solid var(--t-text) !important;
+}
+
+.button--secondary:hover {
+  background: var(--t-text) !important;
+  color: var(--t-white) !important;
+}
+
+/* ============================================================
+   11. INPUTS
+   ============================================================ */
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="range"]),
+textarea,
+select {
+  font-family: var(--t-font-body) !important;
+  border: 1.5px solid var(--t-border) !important;
+  border-radius: var(--t-radius) !important;
+  background: var(--t-white) !important;
+  color: var(--t-text) !important;
+  font-size: 14px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--t-text) !important;
+}
+
+/* ============================================================
+   12. BADGES
+   ============================================================ */
+.badge,
+.product-badge,
+[class*="badge"] {
+  font-family: var(--t-font-body) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border-radius: var(--t-radius-sm) !important;
+  padding: 4px 8px !important;
+}
+
+/* ============================================================
+   13. CART DRAWER
+   ============================================================ */
+cart-drawer,
+.cart-drawer,
+#cart-drawer {
+  background: var(--t-white) !important;
+}
+
+cart-drawer h2,
+.cart-drawer__header-title {
+  font-family: var(--t-font-heading) !important;
+  font-weight: 400 !important;
+  font-size: 22px !important;
+  color: var(--t-text) !important;
+}
+
+/* ============================================================
+   14. SEARCH MODAL
+   ============================================================ */
+search-modal,
+.search-modal,
+#search-modal {
+  background: var(--t-white) !important;
+}
+
+/* ============================================================
+   15. SECTION BACKGROUNDS
+   Override Horizon color schemes
+   ============================================================ */
+[class*="color-scheme-1"],
+[class*="color-scheme-2"],
+[class*="color-scheme-3"] {
+  background-color: var(--t-bg) !important;
+  --color-background: var(--t-bg) !important;
+  --color-foreground: var(--t-text) !important;
+  --color-border: var(--t-border) !important;
+}
+
+/* ============================================================
    16. FOOTER
-   ===================== */
+   Tumble: dark background, 3-column grid:
+   Col 1: Newsletter + social links
+   Col 2: Shop links
+   Col 3: Company + Support links
+
+   Bottom bar: Copyright + policy links + payment icons
+   ============================================================ */
 footer,
-.shopify-section-group-footer-group,
-.footer-section,
-.shopify-section:has(footer) {
-  background-color: var(--c-footer-bg) !important;
-  color: var(--c-footer-text) !important;
+.footer,
+footer .shopify-section,
+.shopify-section-group-footer-group {
+  background-color: var(--t-footer-bg) !important;
+  color: var(--t-footer-text) !important;
 }
 
-/* Footer sections background */
-footer .section,
 footer .section-background,
-footer [class*="section"] {
-  background-color: var(--c-footer-bg) !important;
+footer *[class*="section-background"] {
+  background-color: var(--t-footer-bg) !important;
 }
 
-/* Footer headings */
+footer .section,
+footer [class*="section"] {
+  background: var(--t-footer-bg) !important;
+}
+
+/* Footer headings - SHOP, COMPANY, SUPPORT */
 footer h1,
 footer h2,
 footer h3,
 footer h4,
 footer h5,
-footer .heading {
-  color: var(--c-cream2) !important;
-  font-family: var(--font-body) !important;
+footer h6,
+footer .heading,
+footer strong {
+  color: var(--t-footer-head) !important;
+  font-family: var(--t-font-body) !important;
   font-size: 12px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.12em !important;
+  margin-bottom: 20px !important;
 }
 
 /* Footer links */
-footer a,
-footer .link,
-footer li a {
-  color: var(--c-footer-text) !important;
-  font-family: var(--font-body) !important;
+footer a {
+  color: var(--t-footer-text) !important;
+  font-family: var(--t-font-body) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  line-height: 1.5 !important;
+  transition: color 0.2s ease !important;
+  display: block !important;
+  margin-bottom: 10px !important;
+}
+
+footer a:hover {
+  color: var(--t-footer-head) !important;
+}
+
+/* Footer paragraph */
+footer p,
+footer span {
+  color: var(--t-footer-text) !important;
+  font-family: var(--t-font-body) !important;
   font-size: 13.5px !important;
   line-height: 1.6 !important;
-  text-decoration: none !important;
-  transition: color 0.2s ease !important;
 }
 
-footer a:hover,
-footer li a:hover {
-  color: var(--c-cream2) !important;
-}
-
-/* Footer text */
-footer p,
-footer span:not([class*="icon"]) {
-  color: var(--c-footer-text) !important;
-  font-family: var(--font-body) !important;
-  font-size: 13px !important;
-}
-
-/* Footer lists */
+/* Footer list */
 footer ul,
 footer ol {
   list-style: none !important;
@@ -511,211 +971,214 @@ footer ol {
 }
 
 footer li {
-  margin-bottom: 10px !important;
-}
-
-/* Footer newsletter input */
-footer input[type="email"],
-footer input[type="text"] {
-  background: rgba(255,255,255,0.1) !important;
-  border: 1.5px solid rgba(255,255,255,0.2) !important;
-  border-radius: var(--radius) !important;
-  color: var(--c-cream2) !important;
-  font-family: var(--font-body) !important;
-  padding: 12px 14px !important;
-}
-
-footer input[type="email"]::placeholder,
-footer input[type="text"]::placeholder {
-  color: rgba(212,200,188,0.5) !important;
-}
-
-footer input[type="email"]:focus,
-footer input[type="text"]:focus {
-  border-color: rgba(255,255,255,0.45) !important;
-  outline: none !important;
-  background: rgba(255,255,255,0.14) !important;
-}
-
-footer button[type="submit"],
-footer input[type="submit"],
-footer .newsletter-form__button {
-  background: var(--c-taupe) !important;
-  color: var(--c-dark) !important;
-  border: none !important;
-  border-radius: var(--radius) !important;
-  font-family: var(--font-body) !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  padding: 12px 20px !important;
-  cursor: pointer !important;
-  transition: background 0.2s ease !important;
-}
-
-footer button[type="submit"]:hover {
-  background: var(--c-brown) !important;
-  color: var(--c-cream2) !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* Footer SVG icons */
 footer svg {
-  fill: var(--c-footer-text) !important;
-  color: var(--c-footer-text) !important;
+  fill: var(--t-footer-text) !important;
+  color: var(--t-footer-text) !important;
 }
 
-/* Footer social links */
-footer .social-links a,
-footer [class*="social"] a {
-  width: 36px !important;
-  height: 36px !important;
+/* Newsletter heading - larger than column headings */
+footer .newsletter-heading,
+footer [class*="newsletter"] h2,
+footer [class*="newsletter"] h3 {
+  font-size: 18px !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-weight: 600 !important;
+  color: var(--t-footer-head) !important;
+  font-family: var(--t-font-body) !important;
+}
+
+footer [class*="newsletter"] p {
+  font-size: 13.5px !important;
+  color: var(--t-footer-text) !important;
+  margin-bottom: 16px !important;
+}
+
+/* Newsletter email input */
+footer input[type="email"],
+footer input[type="text"] {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1.5px solid rgba(255,255,255,0.18) !important;
+  border-radius: var(--t-radius) !important;
+  color: var(--t-footer-head) !important;
+  font-family: var(--t-font-body) !important;
+  font-size: 14px !important;
+  padding: 13px 16px !important;
+  width: 100% !important;
+  transition: border-color 0.2s ease, background 0.2s ease !important;
+}
+
+footer input[type="email"]::placeholder {
+  color: rgba(189,189,189,0.55) !important;
+}
+
+footer input[type="email"]:focus {
+  border-color: rgba(255,255,255,0.45) !important;
+  background: rgba(255,255,255,0.12) !important;
+  outline: none !important;
+}
+
+/* Newsletter submit button */
+footer button[type="submit"],
+footer input[type="submit"],
+footer [class*="newsletter-form__button"],
+footer [class*="newsletter"] button {
+  background: var(--t-footer-head) !important;
+  color: var(--t-footer-bg) !important;
+  border: none !important;
+  border-radius: var(--t-radius) !important;
+  font-family: var(--t-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 13px 22px !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+footer button[type="submit"]:hover {
+  background: #EEEEEE !important;
+}
+
+/* Social links row */
+footer [class*="social-links"],
+footer [class*="social-icons"] {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 20px !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+}
+
+footer [class*="social-links"] a,
+footer [class*="social-icons"] a {
+  width: 38px !important;
+  height: 38px !important;
   border-radius: 50% !important;
   background: rgba(255,255,255,0.1) !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  margin-bottom: 0 !important;
   transition: background 0.2s ease !important;
 }
 
-footer .social-links a:hover,
-footer [class*="social"] a:hover {
+footer [class*="social-links"] a:hover,
+footer [class*="social-icons"] a:hover {
   background: rgba(255,255,255,0.2) !important;
 }
 
-/* Footer utilities bar */
+footer [class*="social-links"] svg,
+footer [class*="social-icons"] svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Footer utilities / bottom bar */
 .footer-utilities,
 .utilities,
-[class*="footer-utilities"] {
-  background-color: var(--c-footer-bg) !important;
+footer [class*="utilities"] {
+  background-color: var(--t-footer-bg) !important;
   border-top: 1px solid rgba(255,255,255,0.07) !important;
+  padding: 16px 0 !important;
 }
 
 .footer-utilities *,
 .utilities *,
-[class*="footer-utilities"] * {
-  color: rgba(212,200,188,0.55) !important;
+footer [class*="utilities"] * {
+  color: rgba(189,189,189,0.6) !important;
   font-size: 12px !important;
-  font-family: var(--font-body) !important;
+  font-family: var(--t-font-body) !important;
 }
 
 .footer-utilities a:hover,
 .utilities a:hover {
-  color: var(--c-footer-text) !important;
+  color: var(--t-footer-text) !important;
 }
 
-/* =====================
-   17. CART DRAWER
-   ===================== */
-cart-drawer,
-.cart-drawer,
-.drawer[id*="cart"] {
-  background: var(--c-cream) !important;
+/* Payment icons */
+footer [class*="payment"],
+.footer-utilities [class*="payment"] {
+  opacity: 0.65 !important;
 }
 
-.cart-drawer__title,
-cart-drawer h2 {
-  font-family: var(--font-heading) !important;
+/* ============================================================
+   17. HEADINGS ACROSS ALL SECTIONS
+   ============================================================ */
+h1, h2 {
+  font-family: var(--t-font-heading) !important;
   font-weight: 400 !important;
-  color: var(--c-text) !important;
 }
 
-/* =====================
-   18. SEARCH MODAL
-   ===================== */
-search-modal,
-.search-modal,
-dialog[id*="search"] {
-  background: var(--c-cream) !important;
+h3, h4, h5, h6 {
+  font-family: var(--t-font-body) !important;
 }
 
-/* =====================
-   19. BUTTONS (General)
-   ===================== */
-.button,
-.btn {
-  font-family: var(--font-body) !important;
-  border-radius: var(--radius) !important;
+/* General section headings */
+.section-heading,
+.section__header h2,
+[class*="section-title"] {
+  font-family: var(--t-font-heading) !important;
+  font-size: clamp(24px, 3vw, 36px) !important;
+  font-weight: 400 !important;
+  color: var(--t-text) !important;
+  letter-spacing: -0.01em !important;
 }
 
-.button--primary {
-  background: var(--c-dark) !important;
-  color: var(--c-cream2) !important;
-  border: none !important;
-}
-
-.button--primary:hover {
-  background: var(--c-dark2) !important;
-}
-
-.button--secondary {
-  background: transparent !important;
-  color: var(--c-text) !important;
-  border: 1.5px solid var(--c-text) !important;
-}
-
-.button--secondary:hover {
-  background: var(--c-text) !important;
-  color: var(--c-cream2) !important;
-}
-
-/* =====================
-   20. BADGES
-   ===================== */
-.badge,
-[class*="badge"] {
-  font-family: var(--font-body) !important;
-  font-size: 10px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  border-radius: var(--radius-sm) !important;
-  padding: 3px 8px !important;
-  background: var(--c-dark) !important;
-  color: var(--c-cream2) !important;
-}
-
-/* =====================
-   21. SECTION BACKGROUNDS
-   ===================== */
-.shopify-section,
-main,
-.content-for-layout {
-  background-color: var(--c-cream) !important;
-}
-
-/* Make sure color-scheme-1 uses our cream */
-[class*="color-scheme-1"],
-[class*="color-"][class*="scheme-1"],
-.color-scheme-1 {
-  --color-background: var(--c-cream) !important;
-  --color-foreground: var(--c-text) !important;
-  background-color: var(--c-cream) !important;
-}
-
-/* =====================
-   22. PAGE WIDTH
-   ===================== */
+/* ============================================================
+   18. PAGE WIDTH CONTAINER
+   ============================================================ */
 .page-width {
-  max-width: 1280px;
-  padding-left: 24px;
-  padding-right: 24px;
+  max-width: 1280px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  margin: 0 auto !important;
 }
 
-/* =====================
-   23. RESPONSIVE MOBILE
-   ===================== */
 @media (max-width: 749px) {
-  .product-details h1,
-  .product-details h2 {
-    font-size: 26px !important;
+  .page-width {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
+}
 
-  footer {
-    text-align: center;
-  }
+/* ============================================================
+   19. SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
 
-  footer ul {
-    align-items: center;
-  }
+::-webkit-scrollbar-track {
+  background: var(--t-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--t-border-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--t-accent);
+}
+
+/* ============================================================
+   20. TRANSITIONS & ANIMATIONS
+   ============================================================ */
+a,
+button {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease !important;
+}
+
+/* Fade-in for lazy images */
+.product-media img {
+  transition: opacity 0.3s ease !important;
 }
